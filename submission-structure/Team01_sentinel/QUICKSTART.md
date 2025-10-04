@@ -1,20 +1,30 @@
-# Quick Start Guide - Project Sentinel
+# Quick Start Guide - Project Sentinel (Team Gmora)
 
-## 🚀 Get Started in 3 Steps
+## 🚀 Get Started in 1 Command (For Judges - Ubuntu 24.04)
 
-### Step 1: Navigate to Executables
+### Single Command Execution
 ```bash
 cd evidence/executables
+python3 run_demo.py
 ```
 
-### Step 2: Run the Demo
+**That's it!** The script automatically:
+- ✅ Installs dependencies (flask, flask-cors)
+- ✅ Locates and loads data
+- ✅ Runs all 9 detection algorithms
+- ✅ Generates outputs in `./results/`
+- ✅ Copies to evidence directories
+
+### Alternative: Custom Data Path
 ```bash
-python run_demo.py
+python3 run_demo.py /path/to/data/input
 ```
 
-### Step 3: View Results
-- Events are saved to `evidence/output/test/events.jsonl` and `evidence/output/final/events.jsonl`
-- Open dashboard at `http://localhost:5000` (if prompted)
+### View Results
+- **Primary Output**: `results/events.jsonl`
+- **Summary**: `results/summary.json`
+- **Evidence Copy**: `../output/final/events.jsonl` and `../output/test/events.jsonl`
+- **Dashboard** (optional): Instructions shown at end of execution
 
 ---
 
