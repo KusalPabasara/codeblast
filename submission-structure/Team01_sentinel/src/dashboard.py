@@ -12,6 +12,7 @@ from collections import defaultdict
 import threading
 import time
 import statistics
+import os
 
 from event_engine import EventDetectionEngine
 from config import THRESHOLDS, EVENT_TYPES
@@ -28,7 +29,9 @@ dashboard_state = {
     'alerts': [],
     'metrics': {},
     'realtime_stats': {},
-    'performance_analytics': {}
+    'performance_analytics': {},
+    'events_file': None,
+    'last_file_mtime': None
 }
 
 
@@ -41,6 +44,54 @@ def load_events_from_file(events_file: str):
                 if line.strip():
                     events.append(json.loads(line))
     return events
+
+
+def reload_events_if_changed():
+    """Check if events file has changed and reload if necessary"""
+    events_file = dashboard_state.get('events_file')
+    if not events_file or not Path(events_file).exists():
+        return False
+
+    try:
+        current_mtime = os.path.getmtime(events_file)
+        last_mtime = dashboard_state.get('last_file_mtime')
+
+        # Reload if file has been modified
+        if last_mtime is None or current_mtime > last_mtime:
+            print(f"[AUTO-RELOAD] Detected changes in events file, reloading...")
+            dashboard_state['events'] = load_events_from_file(events_file)
+            dashboard_state['last_update'] = datetime.now().isoformat()
+            dashboard_state['last_file_mtime'] = current_mtime
+            dashboard_state['metrics'] = calculate_metrics(dashboard_state['events'])
+            dashboard_state['metrics']['last_update'] = dashboard_state['last_update']
+
+            # Extract high-priority alerts
+            fraud_types = ['Scanner Avoidance', 'Barcode Switching', 'Weight Discrepancies', 'High-Risk Customer']
+            dashboard_state['alerts'] = [
+                e for e in dashboard_state['events']
+                if e.get('event_data', {}).get('event_name') in fraud_types
+            ][:10]
+
+            print(f"[AUTO-RELOAD] Loaded {len(dashboard_state['events'])} events")
+            print(f"[AUTO-RELOAD] Fraud: {dashboard_state['metrics'].get('fraud_count', 0)}, "
+                  f"Operational: {dashboard_state['metrics'].get('operational_issues', 0)}")
+            return True
+    except Exception as e:
+        print(f"[AUTO-RELOAD] Error checking file: {e}")
+        return False
+
+    return False
+
+
+def file_watcher_thread():
+    """Background thread to monitor events file for changes"""
+    while True:
+        try:
+            reload_events_if_changed()
+            time.sleep(2)  # Check every 2 seconds
+        except Exception as e:
+            print(f"[FILE-WATCHER] Error: {e}")
+            time.sleep(5)
 
 
 def calculate_metrics(events):
@@ -117,11 +168,36 @@ def calculate_metrics(events):
             if station:
                 station_metrics[station]['risk_sum'] += risk_score
 
-        # Track financial impact
+        # Track financial impact with smart calculation
         if 'estimated_loss' in event_data:
             total_estimated_loss += event_data['estimated_loss']
         if 'price_gap' in event_data:
             total_estimated_loss += event_data['price_gap']
+
+        # Calculate estimated loss for fraud events without explicit loss values
+        if event_name in fraud_types and 'estimated_loss' not in event_data:
+            if event_name == 'Scanner Avoidance':
+                # Estimate average product value of $5-50 (LKR 280-14000, assume ~$20)
+                total_estimated_loss += 20.0
+            elif event_name == 'Barcode Switching':
+                # Use price_gap if available, otherwise estimate $15 average loss
+                if 'price_gap' not in event_data:
+                    total_estimated_loss += 15.0
+            elif event_name == 'Weight Discrepancies':
+                # Estimate based on expected vs actual weight difference
+                if 'expected_weight' in event_data and 'actual_weight' in event_data:
+                    weight_diff = abs(event_data['actual_weight'] - event_data['expected_weight'])
+                    # Assume $0.02 per gram of discrepancy
+                    total_estimated_loss += (weight_diff * 0.02)
+
+        # Inventory discrepancy losses
+        if 'Inventory' in event_name:
+            exp_inv = event_data.get('Expected_Inventory', event_data.get('expected_inventory', 0))
+            act_inv = event_data.get('Actual_Inventory', event_data.get('actual_inventory', 0))
+            if exp_inv and act_inv:
+                # Use SKU to estimate value (simplified: assume $2 per unit)
+                inv_diff = abs(exp_inv - act_inv)
+                total_estimated_loss += (inv_diff * 2.0)
 
         timestamp_str = event.get('timestamp')
         if timestamp_str:
@@ -202,17 +278,28 @@ def calculate_metrics(events):
         most_problematic = max(station_metrics.items(), key=lambda x: x[1]['fraud'] + x[1]['operational'] * 0.5)
         metrics['most_problematic_station'] = most_problematic[0]
 
-    # Calculate overall system scores
+    # Calculate overall system scores with improved logic
     total_ops = metrics['fraud_count'] + metrics['operational_issues']
     if len(events) > 0:
         metrics['detection_efficiency'] = round((total_ops / len(events)) * 100, 1)
-        metrics['fraud_prevention_score'] = max(0, round(100 - (metrics['fraud_count'] * 5), 1))
-        metrics['customer_experience_score'] = max(0, round(100 - (metrics['operational_issues'] * 3), 1))
-        metrics['system_health_score'] = round(
+
+        # Improved fraud prevention score (normalized by total events)
+        fraud_ratio = metrics['fraud_count'] / len(events) if len(events) > 0 else 0
+        metrics['fraud_prevention_score'] = max(0, round(100 - (fraud_ratio * 200), 1))
+
+        # Improved customer experience score (normalized by total events)
+        ops_ratio = metrics['operational_issues'] / len(events) if len(events) > 0 else 0
+        metrics['customer_experience_score'] = max(0, round(100 - (ops_ratio * 150), 1))
+
+        # Improved system health with proper bounds
+        critical_ratio = critical_count / len(events) if len(events) > 0 else 0
+        critical_score = max(0, round(100 - (critical_ratio * 300), 1))
+
+        metrics['system_health_score'] = max(0, min(100, round(
             (metrics['fraud_prevention_score'] * 0.4 +
              metrics['customer_experience_score'] * 0.4 +
-             (100 - critical_count * 10) * 0.2), 1
-        )
+             critical_score * 0.2), 1
+        )))
 
     metrics['event_types'] = dict(metrics['event_types'])
     metrics['stations'] = dict(metrics['stations'])
@@ -304,10 +391,27 @@ def refresh_data():
 def start_dashboard(events_file: str = None, port: int = 5000):
     """Start the enhanced dashboard server with comprehensive monitoring"""
     if events_file:
+        # Store absolute events file path for auto-reload
+        events_file = str(Path(events_file).resolve())
+        dashboard_state['events_file'] = events_file
         dashboard_state['events'] = load_events_from_file(events_file)
         dashboard_state['last_update'] = datetime.now().isoformat()
+        if Path(events_file).exists():
+            dashboard_state['last_file_mtime'] = os.path.getmtime(events_file)
         dashboard_state['metrics'] = calculate_metrics(dashboard_state['events'])
         dashboard_state['metrics']['last_update'] = dashboard_state['last_update']
+
+        # Extract high-priority alerts
+        fraud_types = ['Scanner Avoidance', 'Barcode Switching', 'Weight Discrepancies', 'High-Risk Customer']
+        dashboard_state['alerts'] = [
+            e for e in dashboard_state['events']
+            if e.get('event_data', {}).get('event_name') in fraud_types
+        ][:10]
+
+        # Start file watcher thread for auto-reload
+        watcher = threading.Thread(target=file_watcher_thread, daemon=True)
+        watcher.start()
+        print("[FILE-WATCHER] Auto-reload enabled - monitoring events file for changes...")
 
     print("\n" + "="*70)
     print("PROJECT SENTINEL - TEAM GMORA".center(70))
@@ -318,12 +422,14 @@ def start_dashboard(events_file: str = None, port: int = 5000):
     print(f"   * Fraud Alerts: {dashboard_state['metrics'].get('fraud_count', 0)}")
     print(f"   * Operational Issues: {dashboard_state['metrics'].get('operational_issues', 0)}")
     print(f"   * System Health: {dashboard_state['metrics'].get('system_health_score', 100)}%")
+    print(f"   * Auto-Reload: {'Enabled' if events_file else 'Disabled'}")
     print(f"\n   Dashboard Features:")
     print(f"   - Real-time Event Monitoring")
     print(f"   - Advanced Risk Analytics")
     print(f"   - Station Performance Tracking")
     print(f"   - Financial Impact Assessment")
     print(f"   - High-Risk Customer Detection")
+    print(f"   - Auto-reload on dataset changes")
     print(f"\n   Press Ctrl+C to stop the server\n")
     print("="*70 + "\n")
 

@@ -20,12 +20,12 @@ EVENT_TYPES = {
 
 # Detection Thresholds
 THRESHOLDS = {
-    "weight_tolerance_percent": 15,  # Weight difference tolerance
-    "product_recognition_confidence": 0.75,  # Minimum confidence for product recognition
+    "weight_tolerance_percent": 10,  # Weight difference tolerance (reduced from 15% to catch more discrepancies)
+    "product_recognition_confidence": 0.60,  # Minimum confidence for product recognition (reduced from 0.75)
     "queue_length_alert": 5,  # Number of customers
-    "wait_time_alert": 300,  # Seconds (5 minutes)
-    "dwell_time_alert": 180,  # Seconds (3 minutes)
-    "inventory_discrepancy_threshold": 10,  # Percentage difference
+    "wait_time_alert": 60,  # Seconds (1 minute, reduced from 5 minutes)
+    "dwell_time_alert": 60,  # Seconds (1 minute, reduced from 3 minutes)
+    "inventory_discrepancy_threshold": 5,  # Percentage difference (reduced from 10%)
     "system_crash_duration": 30,  # Seconds without activity
     "rfid_pos_time_window": 10,  # Seconds for matching RFID to POS
     "station_alert_wait_threshold": 300,  # Seconds for persistent dwell time pressure

@@ -4,9 +4,9 @@ Complete this template before zipping your submission. Keep the file at the
 project root.
 
 ## Team details
-- Team name: Sentinel Innovators
-- Members: Team Lead (AI Architect), Data Engineer, Full-Stack Developer, ML Specialist
-- Primary contact email: team01.sentinel@innovatex.com
+- Team name: Gmora
+- Members: Kusal Pabasara (Team Lead), AI/ML Engineers, Software Developers
+- Primary contact email: kusalp.23@cse.mrt.ac.lk
 
 ## Judge run command
 Judges will `cd evidence/executables/` and run **one command** on Ubuntu 24.04:

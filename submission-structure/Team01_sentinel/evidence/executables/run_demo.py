@@ -14,40 +14,41 @@ def print_banner():
     """Print startup banner"""
     print("="*70)
     print("PROJECT SENTINEL - AUTOMATED DEMO RUNNER")
+    print("TEAM GMORA - InnovateX Competition")
     print("="*70)
     print()
 
 
 def install_dependencies():
     """Install required Python packages"""
-    print("📦 Installing dependencies...")
-    
+    print("[SETUP] Installing dependencies...")
+
     requirements = [
         'flask',
         'flask-cors'
     ]
-    
+
     for package in requirements:
         try:
             subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-q', package])
-            print(f"   ✓ Installed {package}")
+            print(f"   [OK] Installed {package}")
         except subprocess.CalledProcessError:
-            print(f"   ⚠ Failed to install {package}, continuing...")
-    
+            print(f"   [!] Failed to install {package}, continuing...")
+
     print()
 
 
 def run_processing(data_dir, output_dir):
     """Run the event detection engine"""
-    print("🔍 Running event detection engine...")
-    
+    print("[ENGINE] Running event detection engine...")
+
     # Get absolute paths
     script_dir = Path(__file__).parent.absolute()
     src_dir = script_dir.parent.parent / 'src'
-    
+
     # Add src to Python path
     sys.path.insert(0, str(src_dir))
-    
+
     # Run main processing
     cmd = [
         sys.executable,
@@ -56,64 +57,64 @@ def run_processing(data_dir, output_dir):
         '--output', str(output_dir / 'events.jsonl'),
         '--summary'
     ]
-    
+
     try:
         subprocess.check_call(cmd)
-        print("   ✓ Processing complete")
+        print("   [OK] Processing complete")
     except subprocess.CalledProcessError as e:
-        print(f"   ✗ Processing failed: {e}")
+        print(f"   [X] Processing failed: {e}")
         return False
-    
+
     return True
 
 
 def copy_results_to_evidence(output_dir, evidence_dir):
     """Copy results to evidence directories"""
-    print("\n📋 Copying results to evidence directories...")
-    
+    print("\n[COPY] Copying results to evidence directories...")
+
     events_file = output_dir / 'events.jsonl'
     summary_file = output_dir / 'summary.json'
-    
+
     if events_file.exists():
         # Determine which evidence directory to use (test or final)
         # For demo, we'll copy to both
         for target in ['test', 'final']:
             target_dir = evidence_dir / target
             target_dir.mkdir(parents=True, exist_ok=True)
-            
+
             shutil.copy(events_file, target_dir / 'events.jsonl')
-            print(f"   ✓ Copied events.jsonl to {target}/")
-            
+            print(f"   [OK] Copied events.jsonl to {target}/")
+
             if summary_file.exists():
                 shutil.copy(summary_file, target_dir / 'summary.json')
-                print(f"   ✓ Copied summary.json to {target}/")
+                print(f"   [OK] Copied summary.json to {target}/")
     else:
-        print("   ⚠ No events.jsonl found to copy")
+        print("   [!] No events.jsonl found to copy")
 
 
 def start_dashboard(output_dir):
     """Start the dashboard server"""
-    print("\n🚀 Starting dashboard server...")
+    print("\n[DASHBOARD] Starting dashboard server...")
     print("   Dashboard will be available at: http://localhost:5000")
     print("   Press Ctrl+C to stop")
     print()
-    
+
     script_dir = Path(__file__).parent.absolute()
     src_dir = script_dir.parent.parent / 'src'
-    
+
     cmd = [
         sys.executable,
         str(src_dir / 'dashboard.py'),
         '--events-file', str(output_dir / 'events.jsonl'),
         '--port', '5000'
     ]
-    
+
     try:
         subprocess.check_call(cmd)
     except KeyboardInterrupt:
-        print("\n\n✓ Dashboard stopped")
+        print("\n\n[OK] Dashboard stopped")
     except subprocess.CalledProcessError as e:
-        print(f"\n⚠ Dashboard error: {e}")
+        print(f"\n[!] Dashboard error: {e}")
 
 
 def main():
@@ -129,22 +130,37 @@ def main():
         data_dir = Path(sys.argv[1]).resolve()
         print(f"Using custom data directory: {data_dir}\n")
     else:
-        # Default data directory (assuming running from evidence/executables/)
-        # Look for data in project root or use relative path
-        data_dir = Path('../../../../../../data/input').resolve()
+        # Default data directory search order:
+        # 1. Try ../../../../../data/input (if data is at workspace root)
+        # 2. Try relative to project root
+        # 3. Search parent directories
         
-        # Check if data directory exists, otherwise use alternative paths
-        if not data_dir.exists():
-            # Try relative to project root
-            data_dir = project_root / 'data' / 'input'
-            
-        if not data_dir.exists():
-            # Try to find it in parent directories
-            for parent in [script_dir.parent, script_dir.parent.parent, script_dir.parent.parent.parent]:
-                potential_data = parent / 'data' / 'input'
+        data_dir = None
+        search_paths = [
+            Path('../../../../../data/input').resolve(),  # Workspace root
+            Path('../../../../../../data/input').resolve(),  # Alternative workspace root
+            project_root / 'data' / 'input',  # Within submission folder
+            script_dir.parent.parent.parent.parent / 'data' / 'input',  # Search up
+        ]
+        
+        for potential_path in search_paths:
+            if potential_path.exists() and potential_path.is_dir():
+                data_dir = potential_path
+                break
+        
+        # If still not found, search more parent directories
+        if data_dir is None:
+            current = script_dir
+            for _ in range(10):  # Search up to 10 levels
+                current = current.parent
+                potential_data = current / 'data' / 'input'
                 if potential_data.exists():
                     data_dir = potential_data
                     break
+        
+        # Final fallback
+        if data_dir is None:
+            data_dir = Path('../../../../../data/input').resolve()
     
     # Output directory for results
     output_dir = script_dir / 'results'
@@ -153,14 +169,14 @@ def main():
     # Evidence directory
     evidence_dir = project_root / 'evidence' / 'output'
     
-    print(f"📂 Data directory: {data_dir}")
-    print(f"📂 Output directory: {output_dir}")
-    print(f"📂 Evidence directory: {evidence_dir}")
+    print(f"[PATH] Data directory: {data_dir}")
+    print(f"[PATH] Output directory: {output_dir}")
+    print(f"[PATH] Evidence directory: {evidence_dir}")
     print()
-    
+
     # Check if data directory exists
     if not data_dir.exists():
-        print(f"❌ Error: Data directory not found at {data_dir}")
+        print(f"[ERROR] Data directory not found at {data_dir}")
         print("\nPlease ensure the data directory exists or provide the path as argument:")
         print(f"   python {Path(__file__).name} <path-to-data-directory>")
         sys.exit(1)
@@ -170,34 +186,37 @@ def main():
     
     # Step 2: Run processing
     success = run_processing(data_dir, output_dir)
-    
+
     if not success:
-        print("\n❌ Processing failed. Please check errors above.")
+        print("\n[ERROR] Processing failed. Please check errors above.")
         sys.exit(1)
-    
+
     # Step 3: Copy results to evidence
     copy_results_to_evidence(output_dir, evidence_dir)
-    
+
     # Step 4: Start dashboard
     print("\n" + "="*70)
-    print("✅ SETUP COMPLETE - ALL OUTPUTS GENERATED")
+    print("[SUCCESS] SETUP COMPLETE - ALL OUTPUTS GENERATED")
     print("="*70)
-    print(f"\n📊 Results available at: {output_dir}")
-    print(f"📁 Evidence copied to: {evidence_dir}")
-    
-    # Ask if user wants to start dashboard
+    print(f"\n[RESULTS] Results available at: {output_dir}")
+    print(f"[EVIDENCE] Evidence copied to: {evidence_dir}")
+
+    # Dashboard info (but don't start automatically for judges)
     print("\n" + "="*70)
-    response = input("Would you like to start the dashboard? (y/n): ").strip().lower()
-    
-    if response == 'y':
-        start_dashboard(output_dir)
-    else:
-        print("\n✓ Demo complete. Run dashboard manually with:")
-        print(f"   cd {project_root / 'src'}")
-        print(f"   python dashboard.py --events-file {output_dir / 'events.jsonl'}")
+    print("[INFO] OPTIONAL: Dashboard can be started manually")
+    print("="*70)
+    print(f"\nTo view dashboard:")
+    print(f"   cd {project_root / 'src'}")
+    print(f"   python3 dashboard.py --events-file {output_dir / 'events.jsonl'}")
+    print(f"   Then visit: http://localhost:5000")
     
     print("\n" + "="*70)
-    print("Thank you for using Project Sentinel!")
+    print("PROJECT SENTINEL DEMO COMPLETE - TEAM GMORA")
+    print("="*70)
+    print("\n[✓] All processing complete")
+    print("[✓] All artifacts generated in ./results/")
+    print("[✓] Evidence copied to ../output/")
+    print("\nThank you for evaluating Project Sentinel!")
     print("="*70)
 
 

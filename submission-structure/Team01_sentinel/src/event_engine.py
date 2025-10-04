@@ -108,12 +108,12 @@ class EventDetectionEngine:
         print(f"   Found {len(long_waits)} long wait time events")
         
         print("\n[6/8] Detecting System Crashes...")
-        # Combine all events for crash detection
-        all_events = (self.pos_events + self.rfid_events + 
-                     self.product_recognition + self.queue_monitoring)
+        # Check status fields for System Crash events
         system_crashes = self.ops_detector.detect_system_crashes(
-            all_events,
-            THRESHOLDS['system_crash_duration']
+            pos_events=self.pos_events,
+            product_recognition=self.product_recognition,
+            rfid_events=self.rfid_events,
+            queue_events=self.queue_monitoring
         )
         all_detected.extend(system_crashes)
         print(f"   Found {len(system_crashes)} system crash events")
@@ -315,7 +315,7 @@ class EventDetectionEngine:
                 formatted_event = self.format_event_output(event)
                 f.write(json.dumps(formatted_event, separators=(',', ':')) + '\n')
         
-        print(f"\n✓ Saved {len(sorted_events)} events to {output_path}")
+        print(f"\n[OK] Saved {len(sorted_events)} events to {output_path}")
         
     def generate_summary_report(self) -> Dict[str, Any]:
         """Generate summary statistics"""

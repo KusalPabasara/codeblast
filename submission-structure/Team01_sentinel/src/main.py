@@ -110,7 +110,7 @@ def main():
         summary_path = Path(args.output).parent / "summary.json"
         with open(summary_path, 'w') as f:
             json.dump(summary, f, indent=2)
-        print(f"\n✓ Summary saved to {summary_path}")
+        print(f"\n[OK] Summary saved to {summary_path}")
     
         print("\n" + "="*70)
         print("[SUCCESS] PROCESSING COMPLETE - ALL SYSTEMS OPERATIONAL")

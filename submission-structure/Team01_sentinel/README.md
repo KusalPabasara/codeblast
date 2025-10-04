@@ -1,8 +1,8 @@
-# Project Sentinel - Team01
+# Project Sentinel - Team Gmora
 
 ## 🎯 Project Overview
 
-**Project Sentinel** is an advanced Retail Intelligence System designed to detect and prevent fraud, theft, operational inefficiencies, and poor customer experiences in real-time using multi-source data fusion from in-store sensors and devices.
+**Project Sentinel** by **Team Gmora** is an advanced Retail Intelligence System designed to detect and prevent fraud, theft, operational inefficiencies, and poor customer experiences in real-time using multi-source data fusion from in-store sensors and devices.
 
 ## 🏆 Unique Features
 

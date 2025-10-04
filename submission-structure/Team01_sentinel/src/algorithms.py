@@ -52,26 +52,32 @@ class FraudDetectionAlgorithms:
             timestamp = datetime.fromisoformat(pos['timestamp'])
             pos_by_time[timestamp].append(pos)
         
-        # Check each RFID event
+        # Check each RFID event - only process events with actual SKU data
         for rfid in rfid_events:
+            rfid_sku = rfid['data'].get('sku')
+            rfid_location = rfid['data'].get('location')
+
+            # Skip if no SKU or not in scan area
+            if not rfid_sku or rfid_location != 'IN_SCAN_AREA':
+                continue
+
             rfid_time = datetime.fromisoformat(rfid['timestamp'])
-            rfid_sku = rfid['data']['sku']
             station = rfid['station_id']
-            
+
             # Look for matching POS transaction within time window
             found_in_pos = False
             for offset in range(-time_window, time_window + 1):
                 check_time = rfid_time + timedelta(seconds=offset)
                 if check_time in pos_by_time:
                     for pos in pos_by_time[check_time]:
-                        if (pos['data']['sku'] == rfid_sku and 
+                        if (pos['data']['sku'] == rfid_sku and
                             pos['station_id'] == station):
                             found_in_pos = True
                             break
                 if found_in_pos:
                     break
-            
-            if not found_in_pos and rfid['data']['location'] == 'IN_SCAN_AREA':
+
+            if not found_in_pos:
                 product_info = (products_catalog or {}).get(rfid_sku, {})
                 estimated_loss = product_info.get('price')
 
@@ -102,29 +108,29 @@ class FraudDetectionAlgorithms:
     
     # @algorithm Barcode Switching Detection | Identifies mismatches between visual recognition and scanned barcode
     def detect_barcode_switching(self, product_recognition: List[Dict], pos_events: List[Dict],
-                                confidence_threshold: float = 0.75,
+                                confidence_threshold: float = 0.60,
                                 products_catalog: Optional[Dict[str, Dict[str, Any]]] = None) -> List[Dict]:
         """
         Detects barcode switching by comparing product recognition with POS scans.
         High-confidence vision system predictions that don't match scanned items indicate fraud.
-        
+
         Algorithm:
-        1. Filter product recognition events by confidence threshold
+        1. Filter product recognition events by confidence threshold (0.60 minimum)
         2. Match with POS transactions by timestamp and station
         3. Flag mismatches as barcode switching
         """
         detected_events = []
-        
+
         # Index POS events by timestamp and station
         pos_index = {}
         for pos in pos_events:
             key = (pos['timestamp'], pos['station_id'])
             pos_index[key] = pos
-        
+
         for recognition in product_recognition:
             confidence = recognition['data']['accuracy']
-            
-            # Only consider high-confidence predictions
+
+            # Consider predictions with confidence >= 0.60
             if confidence >= confidence_threshold:
                 predicted_sku = recognition['data']['predicted_product']
                 timestamp = recognition['timestamp']
@@ -332,80 +338,121 @@ class OperationalAlgorithms:
     
     # @algorithm Wait Time Analysis | Identifies excessive customer wait times
     def detect_long_wait_time(self, queue_events: List[Dict],
-                            threshold_seconds: float = 300) -> List[Dict]:
+                            threshold_seconds: float = 60) -> List[Dict]:
         """
         Detects excessive wait times that harm customer experience.
-        
+
         Algorithm:
         1. Monitor average_dwell_time in queue data
-        2. Flag when dwell time exceeds threshold
+        2. Flag when dwell time exceeds threshold (60 seconds)
         3. Generate customer experience alerts
         """
         detected_events = []
-        
+
         for queue in queue_events:
             dwell_time = queue['data']['average_dwell_time']
-            
+            customer_count = queue['data'].get('customer_count', 0)
+
             if dwell_time > threshold_seconds:
                 overage = dwell_time - threshold_seconds
-                risk_score = min(55 + (overage / 60) * 6, 95)
+                # Risk increases with both wait time and customer count
+                time_risk = min((overage / 60) * 15, 35)
+                customer_risk = min(customer_count * 3, 15)
+                risk_score = min(45 + time_risk + customer_risk, 90)
                 severity = self._classify_severity(risk_score)
                 detected_events.append({
                     'timestamp': queue['timestamp'],
                     'type': 'LONG_WAIT',
                     'station_id': queue['station_id'],
-                    'wait_time_seconds': dwell_time,
+                    'wait_time_seconds': round(dwell_time, 1),
+                    'customer_count': customer_count,
                     'risk_score': round(risk_score, 1),
                     'severity': severity,
                     'evidence': queue
                 })
-        
+
         return detected_events
     
     # @algorithm System Health Monitoring | Detects system crashes and downtime
-    def detect_system_crashes(self, all_events: List[Dict],
-                            crash_threshold: int = 30) -> List[Dict]:
+    def detect_system_crashes(self, pos_events: List[Dict] = None,
+                             product_recognition: List[Dict] = None,
+                             rfid_events: List[Dict] = None,
+                             queue_events: List[Dict] = None) -> List[Dict]:
         """
-        Detects system crashes by identifying gaps in event stream.
-        
+        Detects system crashes by checking status field in data streams.
+
         Algorithm:
-        1. Sort all events by timestamp
-        2. Calculate time gaps between consecutive events per station
-        3. Flag gaps exceeding threshold as potential crashes
+        1. Check all event streams for status="System Crash" or "Read Error"
+        2. Flag each crash event with appropriate severity
+        3. Group consecutive crashes to identify crash duration
         """
         detected_events = []
-        
-        # Group events by station
-        events_by_station = defaultdict(list)
-        for event in all_events:
-            if 'station_id' in event:
-                events_by_station[event['station_id']].append(event)
-        
-        # Check for gaps in each station
-        for station_id, station_events in events_by_station.items():
-            sorted_events = sorted(station_events, key=lambda x: x['timestamp'])
-            
-            for i in range(len(sorted_events) - 1):
-                time1 = datetime.fromisoformat(sorted_events[i]['timestamp'])
-                time2 = datetime.fromisoformat(sorted_events[i + 1]['timestamp'])
-                gap = (time2 - time1).total_seconds()
-                
-                if gap > crash_threshold:
-                    risk_score = min(62 + (gap - crash_threshold) * 1.2, 100)
-                    severity = self._classify_severity(risk_score)
-                    detected_events.append({
-                        'timestamp': sorted_events[i + 1]['timestamp'],
-                        'type': 'SYSTEM_CRASH',
-                        'station_id': station_id,
-                        'duration_seconds': int(gap),
-                        'risk_score': round(risk_score, 1),
-                        'severity': severity,
-                        'evidence': {
-                            'last_event': sorted_events[i],
-                            'next_event': sorted_events[i + 1]
-                        }
-                    })
-        
+
+        # Combine all event sources
+        all_sources = []
+        if pos_events:
+            all_sources.extend([(e, 'POS') for e in pos_events if e.get('status') in ['System Crash', 'Read Error']])
+        if product_recognition:
+            all_sources.extend([(e, 'Product Recognition') for e in product_recognition if e.get('status') in ['System Crash', 'Read Error']])
+        if rfid_events:
+            all_sources.extend([(e, 'RFID') for e in rfid_events if e.get('status') in ['System Crash', 'Read Error']])
+        if queue_events:
+            all_sources.extend([(e, 'Queue Monitor') for e in queue_events if e.get('status') in ['System Crash', 'Read Error']])
+
+        # Sort by timestamp
+        all_sources.sort(key=lambda x: x[0]['timestamp'])
+
+        # Track crash sessions
+        crash_sessions = defaultdict(lambda: {'start': None, 'end': None, 'count': 0, 'source': None})
+
+        for event, source in all_sources:
+            station_id = event.get('station_id')
+            timestamp = event['timestamp']
+            status = event.get('status', 'Unknown')
+
+            key = (station_id, source)
+
+            # Start or extend crash session
+            if crash_sessions[key]['start'] is None:
+                crash_sessions[key] = {
+                    'start': timestamp,
+                    'end': timestamp,
+                    'count': 1,
+                    'source': source,
+                    'status': status
+                }
+            else:
+                crash_sessions[key]['end'] = timestamp
+                crash_sessions[key]['count'] += 1
+
+        # Generate events for each crash session
+        for (station_id, source), session_data in crash_sessions.items():
+            if session_data['count'] > 0:
+                # Calculate duration if multiple crash events
+                start_time = datetime.fromisoformat(session_data['start'])
+                end_time = datetime.fromisoformat(session_data['end'])
+                duration = (end_time - start_time).total_seconds()
+
+                # Risk score based on crash count and duration
+                base_risk = 75.0
+                count_factor = min(session_data['count'] * 2, 20)
+                duration_factor = min(duration / 10, 5)
+                risk_score = min(base_risk + count_factor + duration_factor, 100)
+
+                severity = self._classify_severity(risk_score)
+
+                detected_events.append({
+                    'timestamp': session_data['start'],
+                    'type': 'SYSTEM_CRASH',
+                    'station_id': station_id,
+                    'system_source': session_data['source'],
+                    'crash_count': session_data['count'],
+                    'duration_seconds': int(duration),
+                    'status': session_data['status'],
+                    'risk_score': round(risk_score, 1),
+                    'severity': severity
+                })
+
         return detected_events
     
     # @algorithm Staffing Optimization | Recommends staffing needs based on queue metrics
