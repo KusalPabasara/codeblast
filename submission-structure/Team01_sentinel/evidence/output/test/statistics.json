@@ -1,0 +1,14 @@
+{
+  "total": 51,
+  "fraud": 1,
+  "operational": 0,
+  "inventory": 50,
+  "success": 0,
+  "by_type": {
+    "Scanner Avoidance": 1,
+    "Inventory Discrepancy": 50
+  },
+  "by_station": {
+    "SCC1": 1
+  }
+}

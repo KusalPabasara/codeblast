@@ -1,0 +1,60 @@
+{
+  "total_events": 51,
+  "event_breakdown": {
+    "SCANNER_AVOIDANCE": 1,
+    "INVENTORY_DISCREPANCY": 50
+  },
+  "fraud_events": 1,
+  "operational_events": 0,
+  "inventory_events": 50,
+  "successful_operations": 0,
+  "severity_breakdown": {
+    "MEDIUM": 1,
+    "HIGH": 50
+  },
+  "average_risk_score": 94.71,
+  "high_risk_customers": [],
+  "top_risk_events": [
+    {
+      "type": "INVENTORY_DISCREPANCY",
+      "timestamp": "2025-10-04T08:43:14.368337",
+      "risk_score": 95,
+      "severity": "HIGH",
+      "station_id": null
+    },
+    {
+      "type": "INVENTORY_DISCREPANCY",
+      "timestamp": "2025-10-04T08:43:14.368337",
+      "risk_score": 95,
+      "severity": "HIGH",
+      "station_id": null
+    },
+    {
+      "type": "INVENTORY_DISCREPANCY",
+      "timestamp": "2025-10-04T08:43:14.368337",
+      "risk_score": 95,
+      "severity": "HIGH",
+      "station_id": null
+    },
+    {
+      "type": "INVENTORY_DISCREPANCY",
+      "timestamp": "2025-10-04T08:43:14.368337",
+      "risk_score": 95,
+      "severity": "HIGH",
+      "station_id": null
+    },
+    {
+      "type": "INVENTORY_DISCREPANCY",
+      "timestamp": "2025-10-04T08:43:14.368337",
+      "risk_score": 95,
+      "severity": "HIGH",
+      "station_id": null
+    }
+  ],
+  "busiest_stations": [
+    {
+      "station_id": "SCC1",
+      "event_count": 1
+    }
+  ]
+}

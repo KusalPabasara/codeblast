@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Sentinel - Team Gmora | Advanced Retail Intelligence</title>
+
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Professional Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);
+            --danger-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --warning-gradient: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0e27;
+        }
+
+        /* Consistent Font Application */
+        body, .table, .btn, .badge, .label, .dropdown, .select, .input, .checkbox, .radio {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141b3a;
+            --bg-tertiary: #1e2749;
+            --text-primary: #ffffff;
+            --text-secondary: #a6b4d1;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f7f9fc;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f4f8;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        .mono-font {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+        }
+
+        /* Premium Glass Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Filter section needs higher z-index */
+        .glass-card:has(.multi-select) {
+            z-index: 100;
+        }
+
+        [data-theme="light"] .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        /* Gradient Cards */
+        .gradient-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        /* Premium Shadows */
+        .premium-shadow {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="light"] .premium-shadow {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Animated Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+            border-radius: 1rem;
+            z-index: -1;
+            animation: gradient-rotate 3s linear infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-rotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Pulse Animation */
+        .pulse-dot {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: .5;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-secondary);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 1.5rem 0;
+            z-index: 1;
+        }
+
+        /* Multi-select Dropdown */
+        .multi-select {
+            position: relative;
+            z-index: 50;
+        }
+
+        .multi-select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 300px;
+            overflow-y: auto;
+            background: var(--bg-tertiary);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        /* Stat Card Hover Effect */
+        .stat-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Badge Animation */
+        .animated-badge {
+            animation: badge-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes badge-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Search Input */
+        .search-input {
+            background: var(--bg-tertiary);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            animation: skeleton-loading 1.5s ease-in-out infinite;
+            background: linear-gradient(90deg,
+                var(--bg-tertiary) 25%,
+                rgba(102, 126, 234, 0.1) 50%,
+                var(--bg-tertiary) 75%
+            );
+            background-size: 200% 100%;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Tooltip */
+        .tooltip-custom {
+            position: relative;
+        }
+
+        .tooltip-custom:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 0.5rem;
+            white-space: nowrap;
+            margin-bottom: 0.5rem;
+            z-index: 1000;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Font Sizes */
+        @media (max-width: 768px) {
+            .stat-value { font-size: 2rem !important; }
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- Main Container -->
+    <div class="min-h-screen" style="background: var(--bg-primary);">
+
+        <!-- Premium Navbar -->
+        <nav class="navbar glass-card sticky top-0 z-50 premium-shadow">
+            <div class="flex-1">
+                <div class="flex items-center gap-4 px-4">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--primary-gradient);">
+                        <span class="text-2xl">🛡️</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold heading-font">PROJECT SENTINEL</h1>
+                        <p class="text-xs opacity-70">Team Gmora • Retail Intelligence Platform</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-none gap-3 px-4">
+                <!-- Live Status -->
+                <div class="flex items-center gap-2 px-3 py-2 rounded-lg glass-card">
+                    <div class="pulse-dot w-2 h-2 bg-success rounded-full"></div>
+                    <span class="text-xs font-semibold mono-font">LIVE</span>
+                </div>
+
+                <!-- Export Button -->
+                <button onclick="exportData()" class="btn btn-sm btn-ghost gap-2 tooltip-custom" data-tooltip="Export Data">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Export
+                </button>
+
+                <!-- Refresh Button -->
+                <button onclick="manualRefresh()" id="refreshBtn" class="btn btn-sm btn-primary gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    Refresh
+                </button>
+
+                <!-- Theme Toggle -->
+                <label class="swap swap-rotate">
+                    <input type="checkbox" id="themeToggle" onchange="toggleTheme()"/>
+                    <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+                    </svg>
+                    <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+                    </svg>
+                </label>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container mx-auto px-4 py-8 max-w-7xl">
+
+            <!-- Hero Stats Section -->
+            <div class="mb-8" data-aos="fade-up">
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <h2 class="text-3xl font-bold heading-font" style="color: var(--text-primary);">Dashboard Overview</h2>
+                        <p class="text-sm opacity-70 mt-1" id="lastUpdate">Last updated: Loading...</p>
+                    </div>
+                    <div class="badge badge-lg badge-primary gap-2 animated-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-bold" id="quickTotal">0</span> Total Events
+                    </div>
+                </div>
+
+                <!-- Premium Stats Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Total Events -->
+                    <div class="stat-card glass-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div class="badge badge-sm badge-primary badge-outline">All</div>
+                        </div>
+                        <div class="stat-value text-4xl font-black heading-font mb-2" id="totalEvents" style="color: var(--text-primary);">0</div>
+                        <div class="text-sm opacity-70">Total Events</div>
+                        <div class="mt-3 pt-3 border-t border-white/10">
+                            <div class="text-xs opacity-60">All detected incidents</div>
+                        </div>
+                    </div>
+
+                    <!-- Fraud Alerts -->
+                    <div class="stat-card glass-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <div class="badge badge-sm badge-error badge-outline">Critical</div>
+                        </div>
+                        <div class="stat-value text-4xl font-black heading-font mb-2 text-error" id="fraudCount">0</div>
+                        <div class="text-sm opacity-70">Fraud Alerts</div>
+                        <div class="mt-3 pt-3 border-t border-white/10">
+                            <div class="text-xs opacity-60">High priority threats</div>
+                        </div>
+                    </div>
+
+                    <!-- Operational Issues -->
+                    <div class="stat-card glass-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #fad961 0%, #f76b1c 100%);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="badge badge-sm badge-warning badge-outline">Attention</div>
+                        </div>
+                        <div class="stat-value text-4xl font-black heading-font mb-2 text-warning" id="operationalCount">0</div>
+                        <div class="text-sm opacity-70">Operational Issues</div>
+                        <div class="mt-3 pt-3 border-t border-white/10">
+                            <div class="text-xs opacity-60">Queue & system issues</div>
+                        </div>
+                    </div>
+
+                    <!-- System Health -->
+                    <div class="stat-card glass-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #0ba360 0%, #3cba92 100%);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="badge badge-sm badge-success badge-outline">Healthy</div>
+                        </div>
+                        <div class="stat-value text-4xl font-black heading-font mb-2 text-success" id="systemHealth">100%</div>
+                        <div class="text-sm opacity-70">System Health</div>
+                        <div class="mt-3 pt-3 border-t border-white/10">
+                            <div class="text-xs opacity-60">Overall performance</div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Impact -->
+                    <div class="stat-card glass-card rounded-2xl p-6 cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div class="badge badge-sm badge-accent badge-outline">Loss</div>
+                        </div>
+                        <div class="stat-value text-3xl font-black heading-font mb-2 mono-font text-accent" id="financialImpact">$0</div>
+                        <div class="text-sm opacity-70">Financial Impact</div>
+                        <div class="mt-3 pt-3 border-t border-white/10">
+                            <div class="text-xs opacity-60">Estimated losses</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Filters Section -->
+            <div class="glass-card rounded-2xl p-6 mb-12 premium-shadow" data-aos="fade-up" style="position: relative; z-index: 50;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: var(--primary-gradient);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold heading-font" style="color: var(--text-primary);">Advanced Filters</h3>
+                        <p class="text-sm opacity-70">Filter events by type, station, or search keywords</p>
+                    </div>
+                    <button onclick="clearAllFilters()" class="btn btn-sm btn-ghost gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                        Clear All
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Search Input -->
+                    <div class="lg:col-span-3">
+                        <label class="label">
+                            <span class="label-text font-semibold">Search Events</span>
+                        </label>
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search by customer ID, SKU, station..."
+                                class="input input-bordered w-full search-input"
+                                oninput="handleSearch()"
+                            />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-3 top-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Event Type Multi-Select -->
+                    <div>
+                        <label class="label">
+                            <span class="label-text font-semibold">Event Types</span>
+                            <span class="label-text-alt badge badge-sm badge-primary" id="eventFilterBadge">All</span>
+                        </label>
+                        <div class="multi-select">
+                            <button onclick="toggleEventDropdown()" class="btn btn-block justify-between" id="eventDropdownBtn">
+                                <span>Select Event Types</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="eventDropdown" class="multi-select-options glass-card p-4" style="display: none; z-index: 100; position: absolute; min-width: 250px;">
+                                <div class="space-y-2" id="eventCheckboxes">
+                                    <!-- Dynamically populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Station Multi-Select -->
+                    <div>
+                        <label class="label">
+                            <span class="label-text font-semibold">Stations</span>
+                            <span class="label-text-alt badge badge-sm badge-secondary" id="stationFilterBadge">All</span>
+                        </label>
+                        <div class="multi-select">
+                            <button onclick="toggleStationDropdown()" class="btn btn-block justify-between" id="stationDropdownBtn">
+                                <span>Select Stations</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <div id="stationDropdown" class="multi-select-options glass-card p-4" style="display: none; z-index: 100; position: absolute; min-width: 250px;">
+                                <div class="space-y-2" id="stationCheckboxes">
+                                    <!-- Dynamically populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Severity Filter -->
+                    <div>
+                        <label class="label">
+                            <span class="label-text font-semibold">Severity</span>
+                            <span class="label-text-alt badge badge-sm badge-accent" id="severityFilterBadge">All</span>
+                        </label>
+                        <select id="severityFilter" onchange="applySeverityFilter()" class="select select-bordered w-full">
+                            <option value="all">All Severities</option>
+                            <option value="HIGH">High</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="LOW">Low</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Active Filters Display -->
+                <div id="activeFiltersDisplay" class="mt-6 pt-6 border-t border-white/10" style="display: none;">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-sm font-semibold opacity-70">Active Filters:</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2" id="activeFilterTags"></div>
+                </div>
+            </div>
+
+            <!-- High-Risk Customers -->
+            <div id="highRiskSection" class="glass-card rounded-2xl p-6 mb-8 premium-shadow" style="display: none;" data-aos="fade-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold heading-font text-error">High-Risk Customers</h3>
+                        <p class="text-sm opacity-70">Customers with suspicious activity patterns</p>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-bold">Customer ID</th>
+                                <th class="font-bold">Risk Score</th>
+                                <th class="font-bold">Fraud Events</th>
+                                <th class="font-bold">Stations</th>
+                                <th class="font-bold">Severity</th>
+                                <th class="font-bold">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="highRiskTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Station Performance -->
+            <div class="glass-card rounded-2xl p-6 mb-8 premium-shadow" data-aos="fade-up">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-green-500 to-teal-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold heading-font" style="color: var(--text-primary);">Station Performance</h3>
+                        <p class="text-sm opacity-70">Real-time station health monitoring</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="stationPerformance">
+                    <div class="glass-card rounded-xl p-6 skeleton h-32"></div>
+                    <div class="glass-card rounded-xl p-6 skeleton h-32"></div>
+                    <div class="glass-card rounded-xl p-6 skeleton h-32"></div>
+                    <div class="glass-card rounded-xl p-6 skeleton h-32"></div>
+                </div>
+            </div>
+
+            <!-- Recent Events Table -->
+            <div class="glass-card rounded-2xl p-6 premium-shadow" data-aos="fade-up">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold heading-font" style="color: var(--text-primary);">Recent Events</h3>
+                            <p class="text-sm opacity-70">Latest detected incidents</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="badge badge-lg badge-primary gap-2">
+                            <span class="font-bold mono-font" id="filteredCount">0</span>
+                            <span class="opacity-70">events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead>
+                            <tr>
+                                <th class="font-bold">Time</th>
+                                <th class="font-bold">Event Type</th>
+                                <th class="font-bold">Station</th>
+                                <th class="font-bold">Severity</th>
+                                <th class="font-bold">Risk Score</th>
+                                <th class="font-bold">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTable">
+                            <tr>
+                                <td colspan="6" class="text-center py-8">
+                                    <span class="loading loading-spinner loading-lg"></span>
+                                    <p class="mt-3 opacity-70">Loading events...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8" style="position: relative; z-index: 10;">
+                <!-- Severity Distribution -->
+                <div class="glass-card rounded-2xl p-6 premium-shadow" data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold heading-font" style="color: var(--text-primary);">Severity Distribution</h3>
+                            <p class="text-xs opacity-70">Event severity breakdown</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="severityChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Events Timeline -->
+                <div class="glass-card rounded-2xl p-6 premium-shadow" data-aos="fade-left">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold heading-font" style="color: var(--text-primary);">Events Timeline</h3>
+                            <p class="text-xs opacity-70">Temporal event distribution</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="timelineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Premium Footer -->
+        <footer class="glass-card mt-16 py-10">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col items-center gap-4">
+                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center" style="background: var(--primary-gradient);">
+                        <span class="text-3xl">🛡️</span>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold heading-font mb-2">PROJECT SENTINEL</h3>
+                        <p class="text-lg opacity-90 mb-1">Team Gmora</p>
+                        <p class="opacity-70">Advanced Retail Intelligence & Loss Prevention Platform</p>
+                        <div class="flex gap-4 mt-4 justify-center">
+                            <div class="badge badge-outline">Competition Edition</div>
+                            <div class="badge badge-outline">© 2025</div>
+                            <div class="badge badge-outline">All Rights Reserved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+
+        // Global State
+        let eventsData = [];
+        let metricsData = {};
+        let severityChart = null;
+        let timelineChart = null;
+        let selectedEventTypes = new Set();
+        let selectedStations = new Set();
+        let searchQuery = '';
+        let severityFilter = 'all';
+
+        // Theme Management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update body background
+            document.body.style.background = newTheme === 'dark' ? '#0a0e27' : '#f7f9fc';
+
+            // Recreate charts with new theme
+            setTimeout(() => {
+                if (severityChart) severityChart.destroy();
+                if (timelineChart) timelineChart.destroy();
+                renderCharts();
+            }, 100);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.getElementById('themeToggle').checked = savedTheme === 'light';
+        document.body.style.background = savedTheme === 'dark' ? '#0a0e27' : '#f7f9fc';
+
+        // Load Data
+        async function loadData() {
+            try {
+                const [eventsRes, metricsRes] = await Promise.all([
+                    fetch('/api/events'),
+                    fetch('/api/metrics')
+                ]);
+
+                eventsData = await eventsRes.json();
+                metricsData = await metricsRes.json();
+
+                updateDashboard();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+
+        function updateDashboard() {
+            updateMetrics();
+            populateFilterOptions();
+            renderCharts();
+            updateStationPerformance();
+            updateHighRiskCustomers();
+            filterAndDisplayEvents();
+
+            const lastUpdated = metricsData.last_update ? new Date(metricsData.last_update) : new Date();
+            document.getElementById('lastUpdate').textContent =
+                `Last updated: ${lastUpdated.toLocaleString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                })}`;
+        }
+
+        function updateMetrics() {
+            document.getElementById('totalEvents').textContent = (metricsData.total_events || 0).toLocaleString();
+            document.getElementById('quickTotal').textContent = (metricsData.total_events || 0).toLocaleString();
+            document.getElementById('fraudCount').textContent = (metricsData.fraud_count || 0).toLocaleString();
+            document.getElementById('operationalCount').textContent = (metricsData.operational_issues || 0).toLocaleString();
+
+            const sysHealth = metricsData.system_health_score || 100;
+            document.getElementById('systemHealth').textContent = Math.max(0, sysHealth).toFixed(1) + '%';
+
+            document.getElementById('financialImpact').textContent =
+                '$' + (metricsData.financial_impact || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function populateFilterOptions() {
+            const eventTypes = metricsData.event_types || {};
+            const stations = metricsData.stations || {};
+
+            // Populate Event Type Checkboxes
+            const eventCheckboxes = document.getElementById('eventCheckboxes');
+            eventCheckboxes.innerHTML = Object.entries(eventTypes).map(([type, count]) => `
+                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition" style="font-family: 'Inter', sans-serif;">
+                    <input
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-sm"
+                        value="${type}"
+                        onchange="toggleEventType('${type}')"
+                        ${selectedEventTypes.has(type) ? 'checked' : ''}
+                    />
+                    <span class="flex-1" style="font-family: 'Inter', sans-serif; font-size: 0.875rem;">${type}</span>
+                    <span class="badge badge-sm" style="font-family: 'Inter', sans-serif;">${count}</span>
+                </label>
+            `).join('');
+
+            // Populate Station Checkboxes
+            const stationCheckboxes = document.getElementById('stationCheckboxes');
+            stationCheckboxes.innerHTML = Object.entries(stations).map(([station, count]) => `
+                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 cursor-pointer transition" style="font-family: 'Inter', sans-serif;">
+                    <input
+                        type="checkbox"
+                        class="checkbox checkbox-secondary checkbox-sm"
+                        value="${station}"
+                        onchange="toggleStation('${station}')"
+                        ${selectedStations.has(station) ? 'checked' : ''}
+                    />
+                    <span class="flex-1" style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem;">${station}</span>
+                    <span class="badge badge-sm" style="font-family: 'Inter', sans-serif;">${count}</span>
+                </label>
+            `).join('');
+        }
+
+        function toggleEventDropdown() {
+            const dropdown = document.getElementById('eventDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleStationDropdown() {
+            const dropdown = document.getElementById('stationDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleEventType(type) {
+            if (selectedEventTypes.has(type)) {
+                selectedEventTypes.delete(type);
+            } else {
+                selectedEventTypes.add(type);
+            }
+            updateFilterBadges();
+            filterAndDisplayEvents();
+        }
+
+        function toggleStation(station) {
+            if (selectedStations.has(station)) {
+                selectedStations.delete(station);
+            } else {
+                selectedStations.add(station);
+            }
+            updateFilterBadges();
+            filterAndDisplayEvents();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('searchInput').value.toLowerCase();
+            filterAndDisplayEvents();
+        }
+
+        function applySeverityFilter() {
+            severityFilter = document.getElementById('severityFilter').value;
+            updateFilterBadges();
+            filterAndDisplayEvents();
+        }
+
+        function updateFilterBadges() {
+            // Event filter badge
+            const eventBadge = document.getElementById('eventFilterBadge');
+            if (selectedEventTypes.size === 0) {
+                eventBadge.textContent = 'All';
+                eventBadge.className = 'label-text-alt badge badge-sm badge-primary';
+            } else {
+                eventBadge.textContent = selectedEventTypes.size;
+                eventBadge.className = 'label-text-alt badge badge-sm badge-error';
+            }
+
+            // Station filter badge
+            const stationBadge = document.getElementById('stationFilterBadge');
+            if (selectedStations.size === 0) {
+                stationBadge.textContent = 'All';
+                stationBadge.className = 'label-text-alt badge badge-sm badge-secondary';
+            } else {
+                stationBadge.textContent = selectedStations.size;
+                stationBadge.className = 'label-text-alt badge badge-sm badge-error';
+            }
+
+            // Severity filter badge
+            const severityBadge = document.getElementById('severityFilterBadge');
+            if (severityFilter === 'all') {
+                severityBadge.textContent = 'All';
+                severityBadge.className = 'label-text-alt badge badge-sm badge-accent';
+            } else {
+                severityBadge.textContent = severityFilter;
+                severityBadge.className = 'label-text-alt badge badge-sm badge-error';
+            }
+
+            // Update active filters display
+            updateActiveFiltersDisplay();
+        }
+
+        function updateActiveFiltersDisplay() {
+            const activeFiltersSection = document.getElementById('activeFiltersDisplay');
+            const activeFilterTags = document.getElementById('activeFilterTags');
+
+            let tags = [];
+
+            selectedEventTypes.forEach(type => {
+                tags.push(`<div class="badge badge-primary badge-lg gap-2">
+                    ${type}
+                    <svg onclick="toggleEventType('${type}'); document.querySelector('input[value=\\'${type}\\']').checked = false;" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>`);
+            });
+
+            selectedStations.forEach(station => {
+                tags.push(`<div class="badge badge-secondary badge-lg gap-2">
+                    ${station}
+                    <svg onclick="toggleStation('${station}'); document.querySelector('input[value=\\'${station}\\']').checked = false;" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>`);
+            });
+
+            if (severityFilter !== 'all') {
+                tags.push(`<div class="badge badge-accent badge-lg gap-2">
+                    Severity: ${severityFilter}
+                    <svg onclick="document.getElementById('severityFilter').value = 'all'; applySeverityFilter();" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>`);
+            }
+
+            if (searchQuery) {
+                tags.push(`<div class="badge badge-info badge-lg gap-2">
+                    Search: "${searchQuery}"
+                    <svg onclick="document.getElementById('searchInput').value = ''; handleSearch();" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>`);
+            }
+
+            if (tags.length > 0) {
+                activeFiltersSection.style.display = 'block';
+                activeFilterTags.innerHTML = tags.join('');
+            } else {
+                activeFiltersSection.style.display = 'none';
+            }
+        }
+
+        function clearAllFilters() {
+            selectedEventTypes.clear();
+            selectedStations.clear();
+            searchQuery = '';
+            severityFilter = 'all';
+
+            document.getElementById('searchInput').value = '';
+            document.getElementById('severityFilter').value = 'all';
+
+            // Uncheck all checkboxes
+            document.querySelectorAll('#eventCheckboxes input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('#stationCheckboxes input[type="checkbox"]').forEach(cb => cb.checked = false);
+
+            updateFilterBadges();
+            filterAndDisplayEvents();
+        }
+
+        function filterAndDisplayEvents() {
+            let filtered = [...eventsData];
+
+            // Apply event type filter
+            if (selectedEventTypes.size > 0) {
+                filtered = filtered.filter(e => selectedEventTypes.has(e.event_data.event_name));
+            }
+
+            // Apply station filter
+            if (selectedStations.size > 0) {
+                filtered = filtered.filter(e => selectedStations.has(e.event_data.station_id));
+            }
+
+            // Apply severity filter
+            if (severityFilter !== 'all') {
+                filtered = filtered.filter(e => e.event_data.severity === severityFilter);
+            }
+
+            // Apply search filter
+            if (searchQuery) {
+                filtered = filtered.filter(e => {
+                    const searchStr = JSON.stringify(e).toLowerCase();
+                    return searchStr.includes(searchQuery);
+                });
+            }
+
+            // Sort by timestamp (newest first)
+            filtered.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            // Update count
+            document.getElementById('filteredCount').textContent = filtered.length.toLocaleString();
+
+            // Display events
+            displayEvents(filtered);
+        }
+
+        function displayEvents(filtered) {
+            const tableBody = document.getElementById('eventsTable');
+
+            if (filtered.length === 0) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="text-center py-12">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-lg font-semibold opacity-70">No events match your filters</p>
+                            <p class="text-sm opacity-50 mt-2">Try adjusting your filter criteria</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            const recent = filtered.slice(0, 100);
+            tableBody.innerHTML = recent.map((event, index) => {
+                const data = event.event_data;
+                const time = new Date(event.timestamp).toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                const date = new Date(event.timestamp).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                });
+
+                const stationDisplay = data.station_id 
+                    ? data.station_id 
+                    : (Array.isArray(data.stations_involved) && data.stations_involved.length 
+                        ? data.stations_involved.join(', ') 
+                        : 'N/A');
+                
+                return `
+                    <tr class="hover" style="animation: fadeIn 0.3s ease ${index * 0.02}s both; font-family: 'Inter', sans-serif;">
+                        <td>
+                            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 600;">${time}</div>
+                            <div style="font-family: 'Inter', sans-serif; font-size: 0.75rem; opacity: 0.6;">${date}</div>
+                        </td>
+                        <td>${getEventBadge(data.event_name)}</td>
+                        <td>
+                            <div class="badge badge-ghost" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">${stationDisplay}</div>
+                        </td>
+                        <td>${getSeverityBadge(data.severity)}</td>
+                        <td>
+                            <div class="badge badge-lg badge-outline" style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">
+                                ${data.risk_score || 'N/A'}
+                            </div>
+                        </td>
+                        <td style="font-family: 'Inter', sans-serif; font-size: 0.875rem;" class="max-w-md truncate">${formatDetails(data)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getSeverityBadge(severity) {
+            if (!severity) return '<div class="badge badge-ghost" style="font-family: \'Inter\', sans-serif;">N/A</div>';
+            const config = {
+                'HIGH': { class: 'badge-error', icon: '🔴' },
+                'MEDIUM': { class: 'badge-warning', icon: '🟡' },
+                'LOW': { class: 'badge-success', icon: '🟢' }
+            };
+            const cfg = config[severity] || { class: 'badge-ghost', icon: '⚪' };
+            return `<div class="badge ${cfg.class} badge-lg gap-2" style="font-family: 'Inter', sans-serif; font-weight: 600;">${cfg.icon} ${severity}</div>`;
+        }
+
+        function getEventBadge(eventName) {
+            const fraudTypes = ['Scanner Avoidance', 'Barcode Switching', 'Weight Discrepancies', 'High-Risk Customer'];
+            const operationalTypes = ['Long Queue Length', 'Long Wait Time', 'Unexpected Systems Crash', 'Staffing Needs', 'Station Performance Alert'];
+
+            let colorClass = 'badge-success';
+            if (fraudTypes.includes(eventName)) colorClass = 'badge-error';
+            else if (operationalTypes.includes(eventName)) colorClass = 'badge-warning';
+            else if (eventName.includes('Inventory')) colorClass = 'badge-info';
+
+            return `<div class="badge ${colorClass} badge-lg whitespace-normal text-left" style="font-family: 'Inter', sans-serif; font-weight: 500;">${eventName}</div>`;
+        }
+
+        function formatDetails(data) {
+            const details = [];
+            if (data.customer_id) details.push(`👤 ${data.customer_id}`);
+            if (data.product_sku) details.push(`📦 ${data.product_sku}`);
+            if (data.estimated_loss) details.push(`💰 $${data.estimated_loss}`);
+            if (data.num_of_customers) details.push(`👥 Queue: ${data.num_of_customers}`);
+            if (data.wait_time_seconds) details.push(`⏱️ ${data.wait_time_seconds}s`);
+            if (data.price_gap) details.push(`💸 Gap: $${data.price_gap}`);
+            return details.join(' • ') || 'No additional details';
+        }
+
+        function updateStationPerformance() {
+            const container = document.getElementById('stationPerformance');
+            const stationPerf = metricsData.station_performance || {};
+
+            if (Object.keys(stationPerf).length === 0) {
+                container.innerHTML = '<div class="col-span-4 text-center opacity-50 py-8">No station data available</div>';
+                return;
+            }
+
+            container.innerHTML = Object.entries(stationPerf).map(([station, data]) => {
+                const healthClass = data.health_score >= 80 ? 'text-success' :
+                                   data.health_score >= 60 ? 'text-warning' : 'text-error';
+                const gradientClass = data.health_score >= 80 ? 'from-green-500 to-teal-500' :
+                                      data.health_score >= 60 ? 'from-yellow-500 to-orange-500' : 'from-red-500 to-pink-500';
+
+                return `
+                    <div class="glass-card rounded-xl p-6 hover:scale-105 transition-transform cursor-pointer">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br ${gradientClass}">
+                                <span class="text-white font-bold mono-font">${station}</span>
+                            </div>
+                            <div class="badge badge-sm ${data.health_score >= 80 ? 'badge-success' : data.health_score >= 60 ? 'badge-warning' : 'badge-error'}">
+                                ${data.health_score >= 80 ? 'Healthy' : data.health_score >= 60 ? 'Warning' : 'Critical'}
+                            </div>
+                        </div>
+                        <div class="stat-value ${healthClass} text-3xl font-black mb-3">${data.health_score}%</div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Events:</span>
+                                <span class="font-bold">${data.total_events}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Fraud:</span>
+                                <span class="font-bold text-error">${data.fraud_events}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Operational:</span>
+                                <span class="font-bold text-warning">${data.operational_events}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateHighRiskCustomers() {
+            const customers = metricsData.high_risk_customers || [];
+            const section = document.getElementById('highRiskSection');
+            const table = document.getElementById('highRiskTable');
+
+            if (customers.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            table.innerHTML = customers.map(customer => {
+                const stations = Array.isArray(customer.stations_involved)
+                    ? customer.stations_involved
+                    : (customer.station_id ? [customer.station_id] : []);
+                const primaryStation = customer.station_id || (stations[0] ?? 'N/A');
+                const additionalStations = stations.filter(station => station !== primaryStation);
+                const stationDisplay = stations.length > 0 ? stations.join(', ') : 'N/A';
+                const additionalMarkup = additionalStations.length
+                    ? `<div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; opacity: 0.6; margin-top: 0.25rem;">${additionalStations.join(', ')}</div>`
+                    : '';
+
+                return `
+                    <tr class="hover" style="font-family: 'Inter', sans-serif;">
+                        <td style="font-family: 'JetBrains Mono', monospace; font-weight: 700;">${customer.customer_id}</td>
+                        <td>
+                            <div class="badge badge-error badge-lg" style="font-family: 'JetBrains Mono', monospace; font-weight: 900;">
+                                ${customer.risk_score}
+                            </div>
+                        </td>
+                        <td style="font-family: 'Inter', sans-serif; font-weight: 600;">${customer.fraud_event_count || 0}</td>
+                        <td>
+                            <div class="badge badge-ghost" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">${stationDisplay}</div>
+                        </td>
+                        <td>${getSeverityBadge(customer.severity)}</td>
+                        <td>
+                            <button class="btn btn-sm btn-error gap-2" style="font-family: 'Inter', sans-serif; font-weight: 500;">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                Investigate
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function renderCharts() {
+            renderSeverityChart();
+            renderTimelineChart();
+        }
+
+        function renderSeverityChart() {
+            const canvas = document.getElementById('severityChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const data = metricsData.severity_breakdown || {};
+
+            const theme = document.documentElement.getAttribute('data-theme');
+            const textColor = theme === 'dark' ? '#a6b4d1' : '#4a5568';
+
+            if (severityChart) severityChart.destroy();
+
+            severityChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(data).length ? Object.keys(data) : ['No Data'],
+                    datasets: [{
+                        data: Object.keys(data).length ? Object.values(data) : [1],
+                        backgroundColor: ['#f5576c', '#f76b1c', '#3cba92', '#667eea'],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: textColor,
+                                font: { size: 13, weight: '600' },
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderTimelineChart() {
+            const canvas = document.getElementById('timelineChart');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+            const timeline = metricsData.timeline || [];
+
+            const theme = document.documentElement.getAttribute('data-theme');
+            const textColor = theme === 'dark' ? '#a6b4d1' : '#4a5568';
+            const gridColor = theme === 'dark' ? 'rgba(166, 180, 209, 0.1)' : 'rgba(74, 85, 104, 0.1)';
+
+            if (timelineChart) timelineChart.destroy();
+
+            const labels = timeline.slice(-15).map(t => t.time.split(' ')[1] || t.time);
+            const values = timeline.slice(-15).map(t => t.count);
+
+            timelineChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels.length ? labels : ['No Data'],
+                    datasets: [{
+                        label: 'Events',
+                        data: values.length ? values : [0],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        pointBackgroundColor: '#667eea',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 13 },
+                            padding: 12,
+                            cornerRadius: 8
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: textColor,
+                                precision: 0,
+                                font: { size: 12 }
+                            },
+                            grid: { color: gridColor }
+                        },
+                        x: {
+                            ticks: {
+                                color: textColor,
+                                font: { size: 12 }
+                            },
+                            grid: { color: gridColor }
+                        }
+                    }
+                }
+            });
+        }
+
+        function manualRefresh() {
+            const btn = document.getElementById('refreshBtn');
+            btn.classList.add('loading');
+            loadData().finally(() => {
+                btn.classList.remove('loading');
+            });
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(eventsData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `sentinel-events-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.multi-select')) {
+                document.getElementById('eventDropdown').style.display = 'none';
+                document.getElementById('stationDropdown').style.display = 'none';
+            }
+        });
+
+        // Initial load
+        loadData();
+
+        // Auto-refresh every 5 seconds
+        setInterval(loadData, 5000);
+
+        // Add fadeIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
