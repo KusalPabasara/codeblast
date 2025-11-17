@@ -1,11 +1,717 @@
-{"timestamp":"2025-08-13T16:00:00","event_id":"E000","event_data":{"event_name":"Succes Operation","station_id":"SCC1","customer_id":"C001","product_sku":"PRD_F_03"}}
-{"timestamp":"2025-08-13T16:05:45","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","customer_id":"C004","product_sku":"PRD_S_04"}}
-{"timestamp":"2025-08-13T16:15:20","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C009","actual_sku":"PRD_F_08","scanned_sku":"PRD_F_07"}}
-{"timestamp":"2025-08-13T16:12:15","event_id":"E003","event_data":{"event_name":"Weight Discrepancies","station_id":"SCC1","customer_id":"C007","product_sku":"PRD_F_09","expected_weight":425,"actual_weight":680}}
-{"timestamp":"2025-08-13T16:26:45","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC1","duration_seconds":180}}
-{"timestamp":"2025-08-13T16:30:40","event_id":"E006","event_data":{"event_name":"Long Wait_Time","station_id":"SCC3","customer_id":"C015","wait_time_seconds":350}}
-{"timestamp":"2025-08-13T16:19:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
-{"timestamp":"2025-08-13T16:19:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":6}}
-{"timestamp":"2025-08-13T16:19:50","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier"}}
-{"timestamp":"2025-08-13T16:19:50","event_id":"E009","event_data":{"event_name":"Checkout Station Action","station_id":"SCC1","Action":"Open"}}
-{"timestamp":"2025-08-13T16:19:50","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_03","Expected_Inventory":150,"Actual_Inventory":120}}
+{"timestamp":"2025-08-13T16:00:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":62,"customer_count":1}}
+{"timestamp":"2025-08-13T16:00:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":134,"customer_count":2}}
+{"timestamp":"2025-08-13T16:00:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":129,"customer_count":2}}
+{"timestamp":"2025-08-13T16:00:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":108,"customer_count":2}}
+{"timestamp":"2025-08-13T16:00:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":274,"customer_count":4}}
+{"timestamp":"2025-08-13T16:00:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":290,"customer_count":5}}
+{"timestamp":"2025-08-13T16:00:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:00:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":162,"customer_count":7}}
+{"timestamp":"2025-08-13T16:00:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:00:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":109,"customer_count":7}}
+{"timestamp":"2025-08-13T16:00:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:00:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":81,"customer_count":7}}
+{"timestamp":"2025-08-13T16:00:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:00:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":97,"customer_count":6}}
+{"timestamp":"2025-08-13T16:00:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":61,"customer_count":5}}
+{"timestamp":"2025-08-13T16:00:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":67,"customer_count":4}}
+{"timestamp":"2025-08-13T16:01:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":76,"customer_count":5}}
+{"timestamp":"2025-08-13T16:01:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":66,"customer_count":4}}
+{"timestamp":"2025-08-13T16:02:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":66,"customer_count":5}}
+{"timestamp":"2025-08-13T16:02:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T16:02:30","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC2","duration_seconds":5085,"crash_count":5,"system_source":"queue"}}
+{"timestamp":"2025-08-13T16:04:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:04:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":104,"customer_count":7}}
+{"timestamp":"2025-08-13T16:04:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:04:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":73,"customer_count":6}}
+{"timestamp":"2025-08-13T16:04:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:04:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":81,"customer_count":6}}
+{"timestamp":"2025-08-13T16:04:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":61,"customer_count":5}}
+{"timestamp":"2025-08-13T16:04:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T16:05:00","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_V_04"}}
+{"timestamp":"2025-08-13T16:06:05","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC4","duration_seconds":5210,"crash_count":5,"system_source":"queue"}}
+{"timestamp":"2025-08-13T16:08:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T16:08:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T16:08:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_B_03","service_score":95}}
+{"timestamp":"2025-08-13T16:08:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_C_02","service_score":95}}
+{"timestamp":"2025-08-13T16:09:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T16:09:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_H_01","service_score":95}}
+{"timestamp":"2025-08-13T16:09:10","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC1","duration_seconds":6185,"crash_count":27,"system_source":"queue"}}
+{"timestamp":"2025-08-13T16:12:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_T_03","service_score":95}}
+{"timestamp":"2025-08-13T16:12:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T16:13:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_F_06","service_score":95}}
+{"timestamp":"2025-08-13T16:15:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":66,"customer_count":5}}
+{"timestamp":"2025-08-13T16:15:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T16:15:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":68,"customer_count":4}}
+{"timestamp":"2025-08-13T16:15:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":72,"customer_count":5}}
+{"timestamp":"2025-08-13T16:15:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":81,"customer_count":5}}
+{"timestamp":"2025-08-13T16:16:30","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC1","duration_seconds":5460,"crash_count":27,"system_source":"rfid"}}
+{"timestamp":"2025-08-13T16:16:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C044","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T16:16:50","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC2","duration_seconds":2690,"crash_count":3,"system_source":"rfid"}}
+{"timestamp":"2025-08-13T16:17:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_H_05","service_score":95}}
+{"timestamp":"2025-08-13T16:17:25","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC3","duration_seconds":4935,"crash_count":47,"system_source":"rfid"}}
+{"timestamp":"2025-08-13T16:17:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_11","service_score":95}}
+{"timestamp":"2025-08-13T16:17:30","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C025","actual_sku":"PRD_F_04","scanned_sku":"PRD_V_05","confidence":0.97}}
+{"timestamp":"2025-08-13T16:17:30","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C025","actual_sku":"PRD_F_10","scanned_sku":"PRD_V_05","confidence":0.78}}
+{"timestamp":"2025-08-13T16:17:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_10","service_score":95}}
+{"timestamp":"2025-08-13T16:17:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_S_01","service_score":95}}
+{"timestamp":"2025-08-13T16:17:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T16:18:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":68,"customer_count":4}}
+{"timestamp":"2025-08-13T16:18:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_F_01","service_score":95}}
+{"timestamp":"2025-08-13T16:18:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T16:18:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":67,"customer_count":5}}
+{"timestamp":"2025-08-13T16:18:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_C_01","service_score":95}}
+{"timestamp":"2025-08-13T16:18:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":61,"customer_count":5}}
+{"timestamp":"2025-08-13T16:18:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_H_02","service_score":95}}
+{"timestamp":"2025-08-13T16:18:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_A_02","service_score":95}}
+{"timestamp":"2025-08-13T16:18:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T16:18:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T16:18:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_S_04","service_score":95}}
+{"timestamp":"2025-08-13T16:19:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC3","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:19:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":70,"customer_count":6}}
+{"timestamp":"2025-08-13T16:19:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC3","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:19:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":60,"customer_count":6}}
+{"timestamp":"2025-08-13T16:19:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC3","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:19:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":76,"customer_count":6}}
+{"timestamp":"2025-08-13T16:19:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":68,"customer_count":5}}
+{"timestamp":"2025-08-13T16:19:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T16:19:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":60,"customer_count":4}}
+{"timestamp":"2025-08-13T16:19:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":63,"customer_count":4}}
+{"timestamp":"2025-08-13T16:20:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C019","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T16:20:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C019","product_sku":"PRD_A_02","service_score":95}}
+{"timestamp":"2025-08-13T16:20:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C019","product_sku":"PRD_F_13","service_score":95}}
+{"timestamp":"2025-08-13T16:21:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_T_01","service_score":95}}
+{"timestamp":"2025-08-13T16:21:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_C_01","service_score":95}}
+{"timestamp":"2025-08-13T16:21:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_C_02","service_score":95}}
+{"timestamp":"2025-08-13T16:21:50","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_S_03"}}
+{"timestamp":"2025-08-13T16:23:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_F_06","service_score":95}}
+{"timestamp":"2025-08-13T16:23:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_T_05","service_score":95}}
+{"timestamp":"2025-08-13T16:23:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_T_03","service_score":95}}
+{"timestamp":"2025-08-13T16:23:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_B_05","service_score":95}}
+{"timestamp":"2025-08-13T16:23:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T16:23:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T16:23:50","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_15"}}
+{"timestamp":"2025-08-13T16:23:50","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C026","actual_sku":"PRD_F_15","scanned_sku":"PRD_S_04","confidence":0.69}}
+{"timestamp":"2025-08-13T16:23:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T16:23:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":90,"customer_count":8}}
+{"timestamp":"2025-08-13T16:23:55","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 90s"}}
+{"timestamp":"2025-08-13T16:24:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:24:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":92,"customer_count":7}}
+{"timestamp":"2025-08-13T16:24:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:24:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":68,"customer_count":6}}
+{"timestamp":"2025-08-13T16:24:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":67,"customer_count":4}}
+{"timestamp":"2025-08-13T16:24:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:24:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":104,"customer_count":6}}
+{"timestamp":"2025-08-13T16:24:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:24:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":69,"customer_count":6}}
+{"timestamp":"2025-08-13T16:24:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":83,"customer_count":5}}
+{"timestamp":"2025-08-13T16:24:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":82,"customer_count":5}}
+{"timestamp":"2025-08-13T16:24:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":77,"customer_count":5}}
+{"timestamp":"2025-08-13T16:25:45","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_05"}}
+{"timestamp":"2025-08-13T16:25:45","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C018","actual_sku":"PRD_A_05","scanned_sku":"PRD_F_13","confidence":0.66}}
+{"timestamp":"2025-08-13T16:26:05","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC4","duration_seconds":3480,"crash_count":4,"system_source":"rfid"}}
+{"timestamp":"2025-08-13T16:26:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_H_02","service_score":95}}
+{"timestamp":"2025-08-13T16:26:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_V_01","service_score":95}}
+{"timestamp":"2025-08-13T16:26:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_T_03","service_score":95}}
+{"timestamp":"2025-08-13T16:26:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_H_01","service_score":95}}
+{"timestamp":"2025-08-13T16:26:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T16:28:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T16:28:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_T_05","service_score":95}}
+{"timestamp":"2025-08-13T16:28:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T16:28:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_C_02","service_score":95}}
+{"timestamp":"2025-08-13T16:28:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_F_11","service_score":95}}
+{"timestamp":"2025-08-13T16:28:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T16:28:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T16:28:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_A_02","service_score":95}}
+{"timestamp":"2025-08-13T16:31:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_F_15","service_score":95}}
+{"timestamp":"2025-08-13T16:31:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_V_01","service_score":95}}
+{"timestamp":"2025-08-13T16:31:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_C_03","service_score":95}}
+{"timestamp":"2025-08-13T16:31:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_B_05","service_score":95}}
+{"timestamp":"2025-08-13T16:31:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T16:32:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C056","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T16:32:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_C_05","service_score":95}}
+{"timestamp":"2025-08-13T16:32:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_T_05","service_score":95}}
+{"timestamp":"2025-08-13T16:32:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_F_09","service_score":95}}
+{"timestamp":"2025-08-13T16:32:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T16:32:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_S_04","service_score":95}}
+{"timestamp":"2025-08-13T16:32:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T16:33:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T16:33:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T16:35:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:35:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":84,"customer_count":7}}
+{"timestamp":"2025-08-13T16:35:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:35:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":101,"customer_count":6}}
+{"timestamp":"2025-08-13T16:36:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":79,"customer_count":5}}
+{"timestamp":"2025-08-13T16:37:40","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_03"}}
+{"timestamp":"2025-08-13T16:37:40","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C058","actual_sku":"PRD_A_03","scanned_sku":"PRD_H_05","confidence":0.6}}
+{"timestamp":"2025-08-13T16:37:40","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC1","duration_seconds":0,"crash_count":1,"system_source":"pos"}}
+{"timestamp":"2025-08-13T16:38:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":73,"customer_count":5}}
+{"timestamp":"2025-08-13T16:39:40","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_S_02"}}
+{"timestamp":"2025-08-13T16:39:40","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C032","actual_sku":"PRD_S_02","scanned_sku":"PRD_B_01","confidence":0.61}}
+{"timestamp":"2025-08-13T16:39:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":65,"customer_count":5}}
+{"timestamp":"2025-08-13T16:39:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":69,"customer_count":5}}
+{"timestamp":"2025-08-13T16:39:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":66,"customer_count":5}}
+{"timestamp":"2025-08-13T16:40:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":60,"customer_count":4}}
+{"timestamp":"2025-08-13T16:40:15","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_B_04"}}
+{"timestamp":"2025-08-13T16:41:20","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_15"}}
+{"timestamp":"2025-08-13T16:41:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":74,"customer_count":5}}
+{"timestamp":"2025-08-13T16:41:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":62,"customer_count":5}}
+{"timestamp":"2025-08-13T16:41:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":63,"customer_count":4}}
+{"timestamp":"2025-08-13T16:41:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":60,"customer_count":4}}
+{"timestamp":"2025-08-13T16:42:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":61,"customer_count":4}}
+{"timestamp":"2025-08-13T16:43:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":85,"customer_count":5}}
+{"timestamp":"2025-08-13T16:43:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":74,"customer_count":5}}
+{"timestamp":"2025-08-13T16:43:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":85,"customer_count":5}}
+{"timestamp":"2025-08-13T16:43:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":62,"customer_count":5}}
+{"timestamp":"2025-08-13T16:43:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":64,"customer_count":5}}
+{"timestamp":"2025-08-13T16:43:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":63,"customer_count":4}}
+{"timestamp":"2025-08-13T16:43:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T16:43:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":65,"customer_count":4}}
+{"timestamp":"2025-08-13T16:44:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":86,"customer_count":5}}
+{"timestamp":"2025-08-13T16:44:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":63,"customer_count":5}}
+{"timestamp":"2025-08-13T16:44:20","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"RC1","duration_seconds":1690,"crash_count":2,"system_source":"queue"}}
+{"timestamp":"2025-08-13T16:44:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":70,"customer_count":5}}
+{"timestamp":"2025-08-13T16:44:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":77,"customer_count":5}}
+{"timestamp":"2025-08-13T16:44:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":83,"customer_count":5}}
+{"timestamp":"2025-08-13T16:44:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":61,"customer_count":4}}
+{"timestamp":"2025-08-13T16:45:25","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_04"}}
+{"timestamp":"2025-08-13T16:45:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C046","product_sku":"PRD_F_01","service_score":95}}
+{"timestamp":"2025-08-13T16:45:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C046","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T16:45:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C046","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T16:46:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T16:46:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:46:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":106,"customer_count":7}}
+{"timestamp":"2025-08-13T16:46:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:46:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":63,"customer_count":6}}
+{"timestamp":"2025-08-13T16:46:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:46:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":75,"customer_count":7}}
+{"timestamp":"2025-08-13T16:46:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":66,"customer_count":4}}
+{"timestamp":"2025-08-13T16:46:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:46:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":68,"customer_count":6}}
+{"timestamp":"2025-08-13T16:46:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":84,"customer_count":5}}
+{"timestamp":"2025-08-13T16:46:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":61,"customer_count":4}}
+{"timestamp":"2025-08-13T16:46:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":72,"customer_count":5}}
+{"timestamp":"2025-08-13T16:46:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC2","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:46:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":95,"customer_count":6}}
+{"timestamp":"2025-08-13T16:47:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC4","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:47:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":83,"customer_count":6}}
+{"timestamp":"2025-08-13T16:47:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":72,"customer_count":5}}
+{"timestamp":"2025-08-13T16:47:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":73,"customer_count":5}}
+{"timestamp":"2025-08-13T16:47:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":68,"customer_count":4}}
+{"timestamp":"2025-08-13T16:48:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":66,"customer_count":4}}
+{"timestamp":"2025-08-13T16:48:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":63,"customer_count":4}}
+{"timestamp":"2025-08-13T16:49:50","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_C_04"}}
+{"timestamp":"2025-08-13T16:51:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_03","service_score":95}}
+{"timestamp":"2025-08-13T16:51:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_T_01","service_score":95}}
+{"timestamp":"2025-08-13T16:51:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_12","service_score":95}}
+{"timestamp":"2025-08-13T16:51:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_15","service_score":95}}
+{"timestamp":"2025-08-13T16:51:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:51:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":70,"customer_count":6}}
+{"timestamp":"2025-08-13T16:51:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T16:51:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_V_04","service_score":95}}
+{"timestamp":"2025-08-13T16:52:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_F_09","service_score":95}}
+{"timestamp":"2025-08-13T16:52:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_A_02","service_score":95}}
+{"timestamp":"2025-08-13T16:52:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T16:52:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T16:52:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_T_02","service_score":95}}
+{"timestamp":"2025-08-13T16:53:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T16:53:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_T_05","service_score":95}}
+{"timestamp":"2025-08-13T16:53:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T16:53:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_F_12","service_score":95}}
+{"timestamp":"2025-08-13T16:53:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_A_03","service_score":95}}
+{"timestamp":"2025-08-13T16:53:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C049","product_sku":"PRD_B_03","service_score":95}}
+{"timestamp":"2025-08-13T16:53:45","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_T_01"}}
+{"timestamp":"2025-08-13T16:57:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T16:57:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":131,"customer_count":8}}
+{"timestamp":"2025-08-13T16:57:00","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 131s"}}
+{"timestamp":"2025-08-13T16:57:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T16:57:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":130,"customer_count":8}}
+{"timestamp":"2025-08-13T16:57:05","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 130s"}}
+{"timestamp":"2025-08-13T16:57:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:57:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":119,"customer_count":7}}
+{"timestamp":"2025-08-13T16:57:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:57:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":101,"customer_count":7}}
+{"timestamp":"2025-08-13T16:57:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T16:57:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":83,"customer_count":7}}
+{"timestamp":"2025-08-13T16:57:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T16:57:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":80,"customer_count":6}}
+{"timestamp":"2025-08-13T16:57:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":64,"customer_count":5}}
+{"timestamp":"2025-08-13T16:57:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":71,"customer_count":5}}
+{"timestamp":"2025-08-13T16:57:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":67,"customer_count":4}}
+{"timestamp":"2025-08-13T16:59:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C055","product_sku":"PRD_A_04","service_score":95}}
+{"timestamp":"2025-08-13T16:59:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C055","product_sku":"PRD_A_03","service_score":95}}
+{"timestamp":"2025-08-13T16:59:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C055","product_sku":"PRD_C_03","service_score":95}}
+{"timestamp":"2025-08-13T17:01:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":65,"customer_count":4}}
+{"timestamp":"2025-08-13T17:01:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":74,"customer_count":5}}
+{"timestamp":"2025-08-13T17:01:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:01:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":73,"customer_count":6}}
+{"timestamp":"2025-08-13T17:01:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:01:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":82,"customer_count":6}}
+{"timestamp":"2025-08-13T17:01:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:01:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":92,"customer_count":6}}
+{"timestamp":"2025-08-13T17:01:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:01:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":96,"customer_count":6}}
+{"timestamp":"2025-08-13T17:01:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:01:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":100,"customer_count":7}}
+{"timestamp":"2025-08-13T17:01:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:01:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":105,"customer_count":8}}
+{"timestamp":"2025-08-13T17:01:45","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 105s"}}
+{"timestamp":"2025-08-13T17:01:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:01:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":116,"customer_count":8}}
+{"timestamp":"2025-08-13T17:01:50","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 116s"}}
+{"timestamp":"2025-08-13T17:01:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:01:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":113,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:00","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_04"}}
+{"timestamp":"2025-08-13T17:02:00","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C053","actual_sku":"PRD_F_04","scanned_sku":"PRD_C_02","confidence":0.71}}
+{"timestamp":"2025-08-13T17:02:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":71,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":102,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":101,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:02:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":98,"customer_count":8}}
+{"timestamp":"2025-08-13T17:02:15","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 98s"}}
+{"timestamp":"2025-08-13T17:02:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:02:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":106,"customer_count":8}}
+{"timestamp":"2025-08-13T17:02:20","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 106s"}}
+{"timestamp":"2025-08-13T17:02:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":104,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":112,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":70,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":96,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:02:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":100,"customer_count":7}}
+{"timestamp":"2025-08-13T17:02:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:02:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":66,"customer_count":6}}
+{"timestamp":"2025-08-13T17:02:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:02:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":84,"customer_count":6}}
+{"timestamp":"2025-08-13T17:03:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":64,"customer_count":5}}
+{"timestamp":"2025-08-13T17:03:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":63,"customer_count":5}}
+{"timestamp":"2025-08-13T17:03:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C024","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T17:03:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":65,"customer_count":4}}
+{"timestamp":"2025-08-13T17:03:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:03:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":80,"customer_count":8}}
+{"timestamp":"2025-08-13T17:03:35","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 80s"}}
+{"timestamp":"2025-08-13T17:03:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:03:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":70,"customer_count":7}}
+{"timestamp":"2025-08-13T17:03:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:03:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":72,"customer_count":6}}
+{"timestamp":"2025-08-13T17:03:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":67,"customer_count":5}}
+{"timestamp":"2025-08-13T17:05:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_T_03","service_score":95}}
+{"timestamp":"2025-08-13T17:05:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T17:05:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_H_02","service_score":95}}
+{"timestamp":"2025-08-13T17:05:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C028","product_sku":"PRD_F_11","service_score":95}}
+{"timestamp":"2025-08-13T17:05:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:05:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":117,"customer_count":7}}
+{"timestamp":"2025-08-13T17:05:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:05:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":102,"customer_count":7}}
+{"timestamp":"2025-08-13T17:06:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:06:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":80,"customer_count":7}}
+{"timestamp":"2025-08-13T17:06:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:06:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":70,"customer_count":7}}
+{"timestamp":"2025-08-13T17:06:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:06:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":121,"customer_count":7}}
+{"timestamp":"2025-08-13T17:06:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:06:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":80,"customer_count":6}}
+{"timestamp":"2025-08-13T17:06:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":66,"customer_count":5}}
+{"timestamp":"2025-08-13T17:06:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":63,"customer_count":4}}
+{"timestamp":"2025-08-13T17:06:40","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_T_02"}}
+{"timestamp":"2025-08-13T17:06:40","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C004","actual_sku":"PRD_T_02","scanned_sku":"PRD_A_04","confidence":0.74}}
+{"timestamp":"2025-08-13T17:06:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":65,"customer_count":4}}
+{"timestamp":"2025-08-13T17:06:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C059","product_sku":"PRD_F_10","service_score":95}}
+{"timestamp":"2025-08-13T17:06:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C059","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T17:07:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C031","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T17:07:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C031","product_sku":"PRD_C_03","service_score":95}}
+{"timestamp":"2025-08-13T17:07:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C031","product_sku":"PRD_F_05","service_score":95}}
+{"timestamp":"2025-08-13T17:07:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C031","product_sku":"PRD_C_01","service_score":95}}
+{"timestamp":"2025-08-13T17:09:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC3","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T17:09:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_H_03","service_score":95}}
+{"timestamp":"2025-08-13T17:09:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T17:09:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_F_06","service_score":95}}
+{"timestamp":"2025-08-13T17:09:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:09:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T17:09:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_C_04","service_score":95}}
+{"timestamp":"2025-08-13T17:10:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T17:10:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_F_12","service_score":95}}
+{"timestamp":"2025-08-13T17:10:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T17:10:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C033","product_sku":"PRD_T_02","service_score":95}}
+{"timestamp":"2025-08-13T17:11:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:11:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":88,"customer_count":7}}
+{"timestamp":"2025-08-13T17:11:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:11:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":83,"customer_count":6}}
+{"timestamp":"2025-08-13T17:11:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:11:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":72,"customer_count":6}}
+{"timestamp":"2025-08-13T17:11:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":72,"customer_count":5}}
+{"timestamp":"2025-08-13T17:11:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":65,"customer_count":4}}
+{"timestamp":"2025-08-13T17:12:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C060","product_sku":"PRD_V_02","service_score":95}}
+{"timestamp":"2025-08-13T17:12:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C060","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T17:12:20","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C011","actual_sku":"PRD_S_04","scanned_sku":"PRD_F_13","confidence":0.89}}
+{"timestamp":"2025-08-13T17:12:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_F_13","service_score":95}}
+{"timestamp":"2025-08-13T17:12:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C011","product_sku":"PRD_F_11","service_score":95}}
+{"timestamp":"2025-08-13T17:12:30","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_05"}}
+{"timestamp":"2025-08-13T17:13:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C036","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T17:13:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C036","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T17:13:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":67,"customer_count":4}}
+{"timestamp":"2025-08-13T17:13:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C036","product_sku":"PRD_F_13","service_score":95}}
+{"timestamp":"2025-08-13T17:13:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C036","product_sku":"PRD_F_11","service_score":95}}
+{"timestamp":"2025-08-13T17:13:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C036","product_sku":"PRD_B_04","service_score":95}}
+{"timestamp":"2025-08-13T17:13:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":82,"customer_count":5}}
+{"timestamp":"2025-08-13T17:15:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:15:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":76,"customer_count":7}}
+{"timestamp":"2025-08-13T17:15:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:15:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":84,"customer_count":6}}
+{"timestamp":"2025-08-13T17:15:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":68,"customer_count":4}}
+{"timestamp":"2025-08-13T17:15:50","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_05"}}
+{"timestamp":"2025-08-13T17:16:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T17:17:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C039","product_sku":"PRD_A_04","service_score":95}}
+{"timestamp":"2025-08-13T17:17:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C039","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T17:17:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C039","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T17:17:45","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C027","actual_sku":"PRD_F_01","scanned_sku":"PRD_F_14","confidence":0.89,"price_gap":280.0,"predicted_price":280.0}}
+{"timestamp":"2025-08-13T17:17:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T17:17:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_V_02","service_score":95}}
+{"timestamp":"2025-08-13T17:17:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_F_03","service_score":95}}
+{"timestamp":"2025-08-13T17:18:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_H_02","service_score":95}}
+{"timestamp":"2025-08-13T17:18:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_T_03","service_score":95}}
+{"timestamp":"2025-08-13T17:18:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C027","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T17:18:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_C_05","service_score":95}}
+{"timestamp":"2025-08-13T17:18:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_B_04","service_score":95}}
+{"timestamp":"2025-08-13T17:18:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C020","product_sku":"PRD_H_05","service_score":95}}
+{"timestamp":"2025-08-13T17:18:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C020","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T17:18:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C020","product_sku":"PRD_S_02","service_score":95}}
+{"timestamp":"2025-08-13T17:18:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C020","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:19:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C020","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T17:21:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:21:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":134,"customer_count":8}}
+{"timestamp":"2025-08-13T17:21:35","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 134s"}}
+{"timestamp":"2025-08-13T17:21:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:21:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":121,"customer_count":7}}
+{"timestamp":"2025-08-13T17:21:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:21:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":73,"customer_count":6}}
+{"timestamp":"2025-08-13T17:21:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:21:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":77,"customer_count":6}}
+{"timestamp":"2025-08-13T17:21:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":79,"customer_count":5}}
+{"timestamp":"2025-08-13T17:22:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":74,"customer_count":5}}
+{"timestamp":"2025-08-13T17:22:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":61,"customer_count":4}}
+{"timestamp":"2025-08-13T17:22:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":86,"customer_count":5}}
+{"timestamp":"2025-08-13T17:22:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":67,"customer_count":5}}
+{"timestamp":"2025-08-13T17:22:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_F_06","service_score":95}}
+{"timestamp":"2025-08-13T17:22:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":78,"customer_count":5}}
+{"timestamp":"2025-08-13T17:22:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_F_15","service_score":95}}
+{"timestamp":"2025-08-13T17:23:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":60,"customer_count":5}}
+{"timestamp":"2025-08-13T17:23:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_S_02","service_score":95}}
+{"timestamp":"2025-08-13T17:23:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":72,"customer_count":5}}
+{"timestamp":"2025-08-13T17:23:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_A_04","service_score":95}}
+{"timestamp":"2025-08-13T17:23:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":60,"customer_count":4}}
+{"timestamp":"2025-08-13T17:23:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T17:23:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":87,"customer_count":5}}
+{"timestamp":"2025-08-13T17:23:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C029","product_sku":"PRD_H_03","service_score":95}}
+{"timestamp":"2025-08-13T17:23:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T17:23:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":82,"customer_count":5}}
+{"timestamp":"2025-08-13T17:23:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:23:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":93,"customer_count":7}}
+{"timestamp":"2025-08-13T17:23:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:23:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":74,"customer_count":7}}
+{"timestamp":"2025-08-13T17:23:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C037","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T17:24:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:24:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T17:24:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":103,"customer_count":7}}
+{"timestamp":"2025-08-13T17:24:05","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_02"}}
+{"timestamp":"2025-08-13T17:24:05","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C049","actual_sku":"PRD_F_02","scanned_sku":"PRD_T_03","confidence":0.73}}
+{"timestamp":"2025-08-13T17:24:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":104,"customer_count":6}}
+{"timestamp":"2025-08-13T17:24:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":76,"customer_count":6}}
+{"timestamp":"2025-08-13T17:24:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":97,"customer_count":6}}
+{"timestamp":"2025-08-13T17:24:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":71,"customer_count":6}}
+{"timestamp":"2025-08-13T17:24:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:24:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":121,"customer_count":7}}
+{"timestamp":"2025-08-13T17:24:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:24:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":125,"customer_count":8}}
+{"timestamp":"2025-08-13T17:24:30","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 125s"}}
+{"timestamp":"2025-08-13T17:24:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:24:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":117,"customer_count":7}}
+{"timestamp":"2025-08-13T17:24:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:24:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":94,"customer_count":7}}
+{"timestamp":"2025-08-13T17:24:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:24:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":99,"customer_count":7}}
+{"timestamp":"2025-08-13T17:24:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":85,"customer_count":6}}
+{"timestamp":"2025-08-13T17:24:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:24:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":98,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":98,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:25:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":88,"customer_count":8}}
+{"timestamp":"2025-08-13T17:25:05","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 88s"}}
+{"timestamp":"2025-08-13T17:25:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:25:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":79,"customer_count":7}}
+{"timestamp":"2025-08-13T17:25:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":104,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:25:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":111,"customer_count":7}}
+{"timestamp":"2025-08-13T17:25:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":70,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":81,"customer_count":5}}
+{"timestamp":"2025-08-13T17:25:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":87,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":62,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":88,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":96,"customer_count":6}}
+{"timestamp":"2025-08-13T17:25:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:25:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":90,"customer_count":6}}
+{"timestamp":"2025-08-13T17:26:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:26:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":70,"customer_count":6}}
+{"timestamp":"2025-08-13T17:26:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:26:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":74,"customer_count":7}}
+{"timestamp":"2025-08-13T17:26:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":124,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:10","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 124s"}}
+{"timestamp":"2025-08-13T17:26:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":99,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:15","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 99s"}}
+{"timestamp":"2025-08-13T17:26:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":101,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:20","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 101s"}}
+{"timestamp":"2025-08-13T17:26:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":94,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:25","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 94s"}}
+{"timestamp":"2025-08-13T17:26:30","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":127,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:30","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 127s"}}
+{"timestamp":"2025-08-13T17:26:35","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":118,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:35","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 118s"}}
+{"timestamp":"2025-08-13T17:26:40","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":139,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:40","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 139s"}}
+{"timestamp":"2025-08-13T17:26:45","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":93,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:45","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 93s"}}
+{"timestamp":"2025-08-13T17:26:50","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":139,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:50","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 139s"}}
+{"timestamp":"2025-08-13T17:26:55","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:26:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":93,"customer_count":8}}
+{"timestamp":"2025-08-13T17:26:55","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 93s"}}
+{"timestamp":"2025-08-13T17:27:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:27:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":96,"customer_count":8}}
+{"timestamp":"2025-08-13T17:27:00","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 96s"}}
+{"timestamp":"2025-08-13T17:27:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C013","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T17:27:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:27:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":87,"customer_count":8}}
+{"timestamp":"2025-08-13T17:27:05","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 87s"}}
+{"timestamp":"2025-08-13T17:27:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C013","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T17:27:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:27:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":131,"customer_count":8}}
+{"timestamp":"2025-08-13T17:27:10","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"RC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 131s"}}
+{"timestamp":"2025-08-13T17:27:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C013","product_sku":"PRD_F_10","service_score":95}}
+{"timestamp":"2025-08-13T17:27:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:27:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":116,"customer_count":7}}
+{"timestamp":"2025-08-13T17:27:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:27:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":106,"customer_count":7}}
+{"timestamp":"2025-08-13T17:27:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"RC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:27:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":104,"customer_count":6}}
+{"timestamp":"2025-08-13T17:27:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":69,"customer_count":5}}
+{"timestamp":"2025-08-13T17:27:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":76,"customer_count":5}}
+{"timestamp":"2025-08-13T17:29:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_V_04","service_score":95}}
+{"timestamp":"2025-08-13T17:29:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T17:29:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_F_05","service_score":95}}
+{"timestamp":"2025-08-13T17:29:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:29:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C048","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T17:30:00","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:30:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":91,"customer_count":8}}
+{"timestamp":"2025-08-13T17:30:00","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 91s"}}
+{"timestamp":"2025-08-13T17:30:05","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:30:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":90,"customer_count":8}}
+{"timestamp":"2025-08-13T17:30:05","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 90s"}}
+{"timestamp":"2025-08-13T17:30:10","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":8}}
+{"timestamp":"2025-08-13T17:30:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":135,"customer_count":8}}
+{"timestamp":"2025-08-13T17:30:10","event_id":"E008","event_data":{"event_name":"Staffing Needs","station_id":"SCC1","Staff_type":"Cashier","reason":"Queue: 8, Wait: 135s"}}
+{"timestamp":"2025-08-13T17:30:15","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:30:15","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":103,"customer_count":7}}
+{"timestamp":"2025-08-13T17:30:20","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":7}}
+{"timestamp":"2025-08-13T17:30:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":92,"customer_count":7}}
+{"timestamp":"2025-08-13T17:30:25","event_id":"E005","event_data":{"event_name":"Long Queue Length","station_id":"SCC1","num_of_customers":6}}
+{"timestamp":"2025-08-13T17:30:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":73,"customer_count":6}}
+{"timestamp":"2025-08-13T17:30:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":78,"customer_count":5}}
+{"timestamp":"2025-08-13T17:30:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":77,"customer_count":5}}
+{"timestamp":"2025-08-13T17:30:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":81,"customer_count":5}}
+{"timestamp":"2025-08-13T17:30:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":75,"customer_count":5}}
+{"timestamp":"2025-08-13T17:30:40","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":67,"customer_count":5}}
+{"timestamp":"2025-08-13T17:30:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":60,"customer_count":4}}
+{"timestamp":"2025-08-13T17:30:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T17:32:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C001","product_sku":"PRD_V_01","service_score":95}}
+{"timestamp":"2025-08-13T17:32:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C001","product_sku":"PRD_H_05","service_score":95}}
+{"timestamp":"2025-08-13T17:32:15","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C041","actual_sku":"PRD_T_01","scanned_sku":"PRD_H_03","confidence":0.93}}
+{"timestamp":"2025-08-13T17:32:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C041","product_sku":"PRD_H_03","service_score":95}}
+{"timestamp":"2025-08-13T17:32:20","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C041","actual_sku":"PRD_F_12","scanned_sku":"PRD_F_04","confidence":0.89}}
+{"timestamp":"2025-08-13T17:32:20","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C041","actual_sku":"PRD_F_14","scanned_sku":"PRD_F_04","confidence":0.95}}
+{"timestamp":"2025-08-13T17:32:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C041","product_sku":"PRD_F_04","service_score":95}}
+{"timestamp":"2025-08-13T17:32:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T17:32:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C014","product_sku":"PRD_B_04","service_score":95}}
+{"timestamp":"2025-08-13T17:33:00","event_id":"E004","event_data":{"event_name":"Unexpected Systems Crash","station_id":"SCC3","duration_seconds":1315,"crash_count":44,"system_source":"queue"}}
+{"timestamp":"2025-08-13T17:33:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C007","product_sku":"PRD_T_02","service_score":95}}
+{"timestamp":"2025-08-13T17:33:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C007","product_sku":"PRD_A_04","service_score":95}}
+{"timestamp":"2025-08-13T17:34:00","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":67,"customer_count":4}}
+{"timestamp":"2025-08-13T17:34:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T17:34:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C008","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:34:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C042","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T17:34:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C042","product_sku":"PRD_S_01","service_score":95}}
+{"timestamp":"2025-08-13T17:34:55","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_03"}}
+{"timestamp":"2025-08-13T17:34:55","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C058","actual_sku":"PRD_A_03","scanned_sku":"PRD_C_03","confidence":0.62}}
+{"timestamp":"2025-08-13T17:35:50","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T17:35:55","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":61,"customer_count":4}}
+{"timestamp":"2025-08-13T17:36:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_T_01","service_score":95}}
+{"timestamp":"2025-08-13T17:36:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T17:36:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C023","product_sku":"PRD_F_05","service_score":95}}
+{"timestamp":"2025-08-13T17:36:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C023","product_sku":"PRD_F_13","service_score":95}}
+{"timestamp":"2025-08-13T17:37:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C022","product_sku":"PRD_A_03","service_score":95}}
+{"timestamp":"2025-08-13T17:37:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C035","product_sku":"PRD_C_04","service_score":95}}
+{"timestamp":"2025-08-13T17:37:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C035","product_sku":"PRD_F_12","service_score":95}}
+{"timestamp":"2025-08-13T17:37:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C035","product_sku":"PRD_V_01","service_score":95}}
+{"timestamp":"2025-08-13T17:37:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C035","product_sku":"PRD_B_04","service_score":95}}
+{"timestamp":"2025-08-13T17:38:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C009","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T17:39:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C060","product_sku":"PRD_S_02","service_score":95}}
+{"timestamp":"2025-08-13T17:39:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C060","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T17:40:05","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":66,"customer_count":4}}
+{"timestamp":"2025-08-13T17:40:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_H_01","service_score":95}}
+{"timestamp":"2025-08-13T17:40:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_V_04","service_score":95}}
+{"timestamp":"2025-08-13T17:40:25","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C018","actual_sku":"PRD_H_03","scanned_sku":"PRD_S_01","confidence":0.85}}
+{"timestamp":"2025-08-13T17:40:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C018","product_sku":"PRD_S_01","service_score":95}}
+{"timestamp":"2025-08-13T17:40:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_F_03","service_score":95}}
+{"timestamp":"2025-08-13T17:40:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C043","product_sku":"PRD_S_02","service_score":95}}
+{"timestamp":"2025-08-13T17:42:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C015","product_sku":"PRD_F_03","service_score":95}}
+{"timestamp":"2025-08-13T17:42:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C015","product_sku":"PRD_V_01","service_score":95}}
+{"timestamp":"2025-08-13T17:42:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C015","product_sku":"PRD_B_02","service_score":95}}
+{"timestamp":"2025-08-13T17:42:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_04","service_score":95}}
+{"timestamp":"2025-08-13T17:42:30","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C006","actual_sku":"PRD_F_11","scanned_sku":"PRD_F_10","confidence":0.91}}
+{"timestamp":"2025-08-13T17:42:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C006","product_sku":"PRD_F_10","service_score":95}}
+{"timestamp":"2025-08-13T17:42:35","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C050","actual_sku":"PRD_H_03","scanned_sku":"PRD_A_03","confidence":0.93}}
+{"timestamp":"2025-08-13T17:42:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_A_03","service_score":95}}
+{"timestamp":"2025-08-13T17:42:40","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C050","actual_sku":"PRD_H_01","scanned_sku":"PRD_B_05","confidence":0.9}}
+{"timestamp":"2025-08-13T17:42:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_B_05","service_score":95}}
+{"timestamp":"2025-08-13T17:42:45","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C050","actual_sku":"PRD_V_02","scanned_sku":"PRD_B_03","confidence":0.92}}
+{"timestamp":"2025-08-13T17:42:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C050","product_sku":"PRD_B_03","service_score":95}}
+{"timestamp":"2025-08-13T17:42:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C047","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T17:43:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C034","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:43:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C034","product_sku":"PRD_F_14","service_score":95}}
+{"timestamp":"2025-08-13T17:43:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C034","product_sku":"PRD_F_08","service_score":95}}
+{"timestamp":"2025-08-13T17:43:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C034","product_sku":"PRD_C_02","service_score":95}}
+{"timestamp":"2025-08-13T17:43:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C034","product_sku":"PRD_C_01","service_score":95}}
+{"timestamp":"2025-08-13T17:43:40","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_13"}}
+{"timestamp":"2025-08-13T17:45:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C005","product_sku":"PRD_H_04","service_score":95}}
+{"timestamp":"2025-08-13T17:45:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C005","product_sku":"PRD_B_02","service_score":95}}
+{"timestamp":"2025-08-13T17:45:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C005","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T17:46:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C005","product_sku":"PRD_C_04","service_score":95}}
+{"timestamp":"2025-08-13T17:46:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C005","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T17:46:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T17:46:35","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC4","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T17:46:45","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_A_03"}}
+{"timestamp":"2025-08-13T17:46:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":62,"customer_count":4}}
+{"timestamp":"2025-08-13T17:47:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C045","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T17:47:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C045","product_sku":"PRD_F_04","service_score":95}}
+{"timestamp":"2025-08-13T17:47:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C045","product_sku":"PRD_B_02","service_score":95}}
+{"timestamp":"2025-08-13T17:48:00","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_H_03"}}
+{"timestamp":"2025-08-13T17:48:00","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C027","actual_sku":"PRD_H_02","scanned_sku":"PRD_T_03","confidence":0.96}}
+{"timestamp":"2025-08-13T17:48:00","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C027","actual_sku":"PRD_H_03","scanned_sku":"PRD_T_03","confidence":0.72}}
+{"timestamp":"2025-08-13T17:49:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C053","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T17:49:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C030","product_sku":"PRD_C_04","service_score":95}}
+{"timestamp":"2025-08-13T17:49:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C030","product_sku":"PRD_F_02","service_score":95}}
+{"timestamp":"2025-08-13T17:49:50","event_id":"E001","event_data":{"event_name":"Scanner Avoidance","station_id":"SCC1","product_sku":"PRD_F_14"}}
+{"timestamp":"2025-08-13T17:49:50","event_id":"E002","event_data":{"event_name":"Barcode Switching","station_id":"SCC1","customer_id":"C030","actual_sku":"PRD_S_01","scanned_sku":"PRD_C_05","confidence":0.66}}
+{"timestamp":"2025-08-13T17:49:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C030","product_sku":"PRD_V_03","service_score":95}}
+{"timestamp":"2025-08-13T17:50:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C030","product_sku":"PRD_A_02","service_score":95}}
+{"timestamp":"2025-08-13T17:50:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_T_04","service_score":95}}
+{"timestamp":"2025-08-13T17:50:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_A_05","service_score":95}}
+{"timestamp":"2025-08-13T17:51:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_A_01","service_score":95}}
+{"timestamp":"2025-08-13T17:51:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_S_02","service_score":95}}
+{"timestamp":"2025-08-13T17:51:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_V_04","service_score":95}}
+{"timestamp":"2025-08-13T17:51:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C052","product_sku":"PRD_F_09","service_score":95}}
+{"timestamp":"2025-08-13T17:51:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C013","product_sku":"PRD_F_10","service_score":95}}
+{"timestamp":"2025-08-13T17:51:30","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C013","product_sku":"PRD_H_01","service_score":95}}
+{"timestamp":"2025-08-13T17:51:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T17:51:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_C_04","service_score":95}}
+{"timestamp":"2025-08-13T17:51:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C040","product_sku":"PRD_S_05","service_score":95}}
+{"timestamp":"2025-08-13T17:52:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":66,"customer_count":4}}
+{"timestamp":"2025-08-13T17:53:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C054","product_sku":"PRD_A_03","service_score":95}}
+{"timestamp":"2025-08-13T17:53:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"RC1","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T17:54:35","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C012","product_sku":"PRD_B_01","service_score":95}}
+{"timestamp":"2025-08-13T17:54:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C012","product_sku":"PRD_V_02","service_score":95}}
+{"timestamp":"2025-08-13T17:55:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T17:55:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C017","product_sku":"PRD_S_03","service_score":95}}
+{"timestamp":"2025-08-13T17:57:10","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C051","product_sku":"PRD_B_02","service_score":95}}
+{"timestamp":"2025-08-13T17:57:15","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C051","product_sku":"PRD_T_01","service_score":95}}
+{"timestamp":"2025-08-13T17:57:20","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C051","product_sku":"PRD_C_01","service_score":95}}
+{"timestamp":"2025-08-13T17:57:25","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C051","product_sku":"PRD_F_06","service_score":95}}
+{"timestamp":"2025-08-13T17:57:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C057","product_sku":"PRD_F_07","service_score":95}}
+{"timestamp":"2025-08-13T17:57:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C057","product_sku":"PRD_C_03","service_score":95}}
+{"timestamp":"2025-08-13T17:58:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C057","product_sku":"PRD_V_04","service_score":95}}
+{"timestamp":"2025-08-13T17:58:10","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC1","wait_time_seconds":64,"customer_count":4}}
+{"timestamp":"2025-08-13T17:58:20","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":61,"customer_count":5}}
+{"timestamp":"2025-08-13T17:58:25","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":71,"customer_count":5}}
+{"timestamp":"2025-08-13T17:58:30","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":73,"customer_count":5}}
+{"timestamp":"2025-08-13T17:58:40","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_V_05","service_score":95}}
+{"timestamp":"2025-08-13T17:58:45","event_id":"E006","event_data":{"event_name":"Long Wait Time","station_id":"SCC2","wait_time_seconds":69,"customer_count":4}}
+{"timestamp":"2025-08-13T17:58:45","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_S_01","service_score":95}}
+{"timestamp":"2025-08-13T17:58:50","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_V_02","service_score":95}}
+{"timestamp":"2025-08-13T17:58:55","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_F_09","service_score":95}}
+{"timestamp":"2025-08-13T17:59:00","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_H_05","service_score":95}}
+{"timestamp":"2025-08-13T17:59:05","event_id":"E000","event_data":{"event_name":"Successful Operation","station_id":"SCC1","customer_id":"C002","product_sku":"PRD_F_01","service_score":95}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_01","Expected_Inventory":96,"Actual_Inventory":4,"Difference":-92,"Difference_Percent":95.83}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_02","Expected_Inventory":72,"Actual_Inventory":9,"Difference":-63,"Difference_Percent":87.5}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_03","Expected_Inventory":116,"Actual_Inventory":4,"Difference":-112,"Difference_Percent":96.55}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_04","Expected_Inventory":56,"Actual_Inventory":5,"Difference":-51,"Difference_Percent":91.07}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_05","Expected_Inventory":72,"Actual_Inventory":4,"Difference":-68,"Difference_Percent":94.44}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_06","Expected_Inventory":145,"Actual_Inventory":5,"Difference":-140,"Difference_Percent":96.55}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_07","Expected_Inventory":94,"Actual_Inventory":6,"Difference":-88,"Difference_Percent":93.62}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_08","Expected_Inventory":34,"Actual_Inventory":6,"Difference":-28,"Difference_Percent":82.35}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_09","Expected_Inventory":86,"Actual_Inventory":4,"Difference":-82,"Difference_Percent":95.35}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_10","Expected_Inventory":55,"Actual_Inventory":6,"Difference":-49,"Difference_Percent":89.09}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_11","Expected_Inventory":64,"Actual_Inventory":6,"Difference":-58,"Difference_Percent":90.62}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_12","Expected_Inventory":115,"Actual_Inventory":5,"Difference":-110,"Difference_Percent":95.65}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_13","Expected_Inventory":95,"Actual_Inventory":5,"Difference":-90,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_14","Expected_Inventory":73,"Actual_Inventory":8,"Difference":-65,"Difference_Percent":89.04}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_F_15","Expected_Inventory":67,"Actual_Inventory":5,"Difference":-62,"Difference_Percent":92.54}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_B_01","Expected_Inventory":83,"Actual_Inventory":6,"Difference":-77,"Difference_Percent":92.77}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_B_02","Expected_Inventory":116,"Actual_Inventory":4,"Difference":-112,"Difference_Percent":96.55}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_B_03","Expected_Inventory":97,"Actual_Inventory":3,"Difference":-94,"Difference_Percent":96.91}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_B_04","Expected_Inventory":146,"Actual_Inventory":5,"Difference":-141,"Difference_Percent":96.58}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_B_05","Expected_Inventory":77,"Actual_Inventory":3,"Difference":-74,"Difference_Percent":96.1}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_A_01","Expected_Inventory":94,"Actual_Inventory":6,"Difference":-88,"Difference_Percent":93.62}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_A_02","Expected_Inventory":65,"Actual_Inventory":5,"Difference":-60,"Difference_Percent":92.31}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_A_03","Expected_Inventory":45,"Actual_Inventory":8,"Difference":-37,"Difference_Percent":82.22}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_A_04","Expected_Inventory":95,"Actual_Inventory":5,"Difference":-90,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_A_05","Expected_Inventory":74,"Actual_Inventory":8,"Difference":-66,"Difference_Percent":89.19}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_S_01","Expected_Inventory":56,"Actual_Inventory":4,"Difference":-52,"Difference_Percent":92.86}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_S_02","Expected_Inventory":65,"Actual_Inventory":6,"Difference":-59,"Difference_Percent":90.77}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_S_03","Expected_Inventory":83,"Actual_Inventory":8,"Difference":-75,"Difference_Percent":90.36}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_S_04","Expected_Inventory":96,"Actual_Inventory":3,"Difference":-93,"Difference_Percent":96.88}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_S_05","Expected_Inventory":114,"Actual_Inventory":6,"Difference":-108,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_V_01","Expected_Inventory":145,"Actual_Inventory":5,"Difference":-140,"Difference_Percent":96.55}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_V_02","Expected_Inventory":95,"Actual_Inventory":5,"Difference":-90,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_V_03","Expected_Inventory":194,"Actual_Inventory":6,"Difference":-188,"Difference_Percent":96.91}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_V_04","Expected_Inventory":75,"Actual_Inventory":6,"Difference":-69,"Difference_Percent":92.0}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_V_05","Expected_Inventory":83,"Actual_Inventory":6,"Difference":-77,"Difference_Percent":92.77}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_H_01","Expected_Inventory":55,"Actual_Inventory":5,"Difference":-50,"Difference_Percent":90.91}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_H_02","Expected_Inventory":95,"Actual_Inventory":5,"Difference":-90,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_H_03","Expected_Inventory":75,"Actual_Inventory":6,"Difference":-69,"Difference_Percent":92.0}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_H_04","Expected_Inventory":113,"Actual_Inventory":7,"Difference":-106,"Difference_Percent":93.81}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_H_05","Expected_Inventory":85,"Actual_Inventory":4,"Difference":-81,"Difference_Percent":95.29}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_C_01","Expected_Inventory":95,"Actual_Inventory":5,"Difference":-90,"Difference_Percent":94.74}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_C_02","Expected_Inventory":145,"Actual_Inventory":4,"Difference":-141,"Difference_Percent":97.24}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_C_03","Expected_Inventory":115,"Actual_Inventory":4,"Difference":-111,"Difference_Percent":96.52}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_C_04","Expected_Inventory":95,"Actual_Inventory":6,"Difference":-89,"Difference_Percent":93.68}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_C_05","Expected_Inventory":77,"Actual_Inventory":3,"Difference":-74,"Difference_Percent":96.1}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_T_01","Expected_Inventory":65,"Actual_Inventory":6,"Difference":-59,"Difference_Percent":90.77}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_T_02","Expected_Inventory":97,"Actual_Inventory":4,"Difference":-93,"Difference_Percent":95.88}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_T_03","Expected_Inventory":143,"Actual_Inventory":5,"Difference":-138,"Difference_Percent":96.5}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_T_04","Expected_Inventory":54,"Actual_Inventory":6,"Difference":-48,"Difference_Percent":88.89}}
+{"timestamp":"2025-08-13T18:00:00","event_id":"E007","event_data":{"event_name":"Inventory Discrepancy","SKU":"PRD_T_05","Expected_Inventory":46,"Actual_Inventory":4,"Difference":-42,"Difference_Percent":91.3}}
