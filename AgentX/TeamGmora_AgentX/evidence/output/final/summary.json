@@ -1,0 +1,47 @@
+{
+  "total_events": 608,
+  "event_breakdown": {
+    "SCANNER_AVOIDANCE": 36,
+    "BARCODE_SWITCHING": 27,
+    "WEIGHT_DISCREPANCY": 13,
+    "LONG_QUEUE": 76,
+    "LONG_WAIT": 214,
+    "SYSTEM_CRASH": 9,
+    "STAFFING_NEEDS": 8,
+    "INVENTORY_DISCREPANCY": 50,
+    "SUCCESS": 175
+  },
+  "severity_breakdown": {
+    "CRITICAL": 135,
+    "HIGH": 200,
+    "MEDIUM": 98,
+    "LOW": 175
+  },
+  "average_risk_score": 53.31,
+  "fraud_events": 76,
+  "operational_events": 307,
+  "inventory_events": 50,
+  "successful_operations": 175,
+  "top_stations": [
+    {
+      "station_id": "SCC1",
+      "event_count": 415
+    },
+    {
+      "station_id": "RC1",
+      "event_count": 102
+    },
+    {
+      "station_id": "SCC2",
+      "event_count": 25
+    },
+    {
+      "station_id": "SCC4",
+      "event_count": 8
+    },
+    {
+      "station_id": "SCC3",
+      "event_count": 8
+    }
+  ]
+}
