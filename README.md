@@ -1,6 +1,6 @@
 ﻿# AgentX - Self-Checkout Fraud Detection System
 
-## 📋 Overview
+## Overview
 
 AgentX is an intelligent retail analytics platform designed to detect anomalies and potential fraud in self-checkout systems. The system processes multiple data streams including POS transactions, queue monitoring, RFID readings, product recognition, and inventory snapshots to identify suspicious patterns and generate actionable insights.
 
@@ -196,4 +196,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Repository](https://github.com/KusalPabasara/codeblast)
 - [Issues](https://github.com/KusalPabasara/codeblast/issues)
+
 
